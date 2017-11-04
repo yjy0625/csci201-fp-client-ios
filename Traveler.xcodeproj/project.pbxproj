@@ -7,23 +7,47 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5909FCF115C81936227EB0D3 /* Pods_Traveler.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C4667A0CCDC1E8075977F688 /* Pods_Traveler.framework */; };
+		59B045BC1FAD24E4007AFB1B /* Globals.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59B045BB1FAD24E4007AFB1B /* Globals.swift */; };
+		59D3756D1FAB0697004F35E4 /* BasicContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59D3756C1FAB0697004F35E4 /* BasicContentView.swift */; };
 		59EA29581FA102D800071C54 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59EA29571FA102D800071C54 /* AppDelegate.swift */; };
-		59EA295A1FA102D800071C54 /* FirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59EA29591FA102D800071C54 /* FirstViewController.swift */; };
-		59EA295C1FA102D800071C54 /* SecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59EA295B1FA102D800071C54 /* SecondViewController.swift */; };
 		59EA295F1FA102D800071C54 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 59EA295D1FA102D800071C54 /* Main.storyboard */; };
 		59EA29611FA102D800071C54 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 59EA29601FA102D800071C54 /* Assets.xcassets */; };
 		59EA29641FA102D800071C54 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 59EA29621FA102D800071C54 /* LaunchScreen.storyboard */; };
+		59EA296C1FA135FE00071C54 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59EA296B1FA135FE00071C54 /* LoginViewController.swift */; };
+		59EA296E1FA1365400071C54 /* SignupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59EA296D1FA1365400071C54 /* SignupViewController.swift */; };
+		59EA29711FA1370E00071C54 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59EA29701FA1370E00071C54 /* HomeViewController.swift */; };
+		59EA29731FA1372300071C54 /* ExploreViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59EA29721FA1372300071C54 /* ExploreViewController.swift */; };
+		59EA29751FA13B8700071C54 /* TimelineViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59EA29741FA13B8700071C54 /* TimelineViewController.swift */; };
+		59EA29771FA13B9500071C54 /* MeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59EA29761FA13B9500071C54 /* MeViewController.swift */; };
+		59EA29801FA1CCF500071C54 /* AddPostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59EA297F1FA1CCF500071C54 /* AddPostViewController.swift */; };
+		59EA29871FA1CFAC00071C54 /* BounceContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59EA29851FA1CFAC00071C54 /* BounceContentView.swift */; };
+		59EA298D1FA1D0C700071C54 /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59EA298C1FA1D0C700071C54 /* TabBarController.swift */; };
+		59EA298F1FA1D55F00071C54 /* AuthenticationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59EA298E1FA1D55F00071C54 /* AuthenticationViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		59B045BB1FAD24E4007AFB1B /* Globals.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Globals.swift; path = "Supporting Files/Globals.swift"; sourceTree = "<group>"; };
+		59D3756C1FAB0697004F35E4 /* BasicContentView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BasicContentView.swift; path = ContentViews/BasicContentView.swift; sourceTree = "<group>"; };
 		59EA29541FA102D800071C54 /* Traveler.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Traveler.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		59EA29571FA102D800071C54 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		59EA29591FA102D800071C54 /* FirstViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstViewController.swift; sourceTree = "<group>"; };
-		59EA295B1FA102D800071C54 /* SecondViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondViewController.swift; sourceTree = "<group>"; };
 		59EA295E1FA102D800071C54 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		59EA29601FA102D800071C54 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		59EA29631FA102D800071C54 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		59EA29651FA102D800071C54 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		59EA296B1FA135FE00071C54 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LoginViewController.swift; path = Authentication/LoginViewController.swift; sourceTree = "<group>"; };
+		59EA296D1FA1365400071C54 /* SignupViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SignupViewController.swift; path = Authentication/SignupViewController.swift; sourceTree = "<group>"; };
+		59EA29701FA1370E00071C54 /* HomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = HomeViewController.swift; path = Tabs/HomeViewController.swift; sourceTree = "<group>"; };
+		59EA29721FA1372300071C54 /* ExploreViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ExploreViewController.swift; path = Tabs/ExploreViewController.swift; sourceTree = "<group>"; };
+		59EA29741FA13B8700071C54 /* TimelineViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TimelineViewController.swift; path = Tabs/TimelineViewController.swift; sourceTree = "<group>"; };
+		59EA29761FA13B9500071C54 /* MeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MeViewController.swift; path = Tabs/MeViewController.swift; sourceTree = "<group>"; };
+		59EA297F1FA1CCF500071C54 /* AddPostViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AddPostViewController.swift; path = Tabs/AddPostViewController.swift; sourceTree = "<group>"; };
+		59EA29851FA1CFAC00071C54 /* BounceContentView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BounceContentView.swift; path = ContentViews/BounceContentView.swift; sourceTree = "<group>"; };
+		59EA298C1FA1D0C700071C54 /* TabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
+		59EA298E1FA1D55F00071C54 /* AuthenticationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AuthenticationViewController.swift; path = Authentication/AuthenticationViewController.swift; sourceTree = "<group>"; };
+		5A96829AB4328AAA274B6439 /* Pods-Traveler.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Traveler.release.xcconfig"; path = "Pods/Target Support Files/Pods-Traveler/Pods-Traveler.release.xcconfig"; sourceTree = "<group>"; };
+		A71414BEBA1B456BF5661D45 /* Pods-Traveler.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Traveler.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Traveler/Pods-Traveler.debug.xcconfig"; sourceTree = "<group>"; };
+		C4667A0CCDC1E8075977F688 /* Pods_Traveler.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Traveler.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -31,17 +55,28 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5909FCF115C81936227EB0D3 /* Pods_Traveler.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		59B045BA1FAD24B3007AFB1B /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				59B045BB1FAD24E4007AFB1B /* Globals.swift */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
 		59EA294B1FA102D800071C54 = {
 			isa = PBXGroup;
 			children = (
 				59EA29561FA102D800071C54 /* Traveler */,
 				59EA29551FA102D800071C54 /* Products */,
+				EF46F3F008AC5CF67852B6D8 /* Pods */,
+				779A87B212FCFD697100AA8F /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -57,14 +92,65 @@
 			isa = PBXGroup;
 			children = (
 				59EA29571FA102D800071C54 /* AppDelegate.swift */,
-				59EA29591FA102D800071C54 /* FirstViewController.swift */,
-				59EA295B1FA102D800071C54 /* SecondViewController.swift */,
 				59EA295D1FA102D800071C54 /* Main.storyboard */,
 				59EA29601FA102D800071C54 /* Assets.xcassets */,
 				59EA29621FA102D800071C54 /* LaunchScreen.storyboard */,
 				59EA29651FA102D800071C54 /* Info.plist */,
+				59EA296F1FA1365D00071C54 /* Authentication */,
+				59EA298C1FA1D0C700071C54 /* TabBarController.swift */,
+				59EA29891FA1CFAF00071C54 /* Content Views */,
+				59EA29781FA13B9F00071C54 /* Tabs */,
+				59B045BA1FAD24B3007AFB1B /* Supporting Files */,
 			);
 			path = Traveler;
+			sourceTree = "<group>";
+		};
+		59EA296F1FA1365D00071C54 /* Authentication */ = {
+			isa = PBXGroup;
+			children = (
+				59EA296B1FA135FE00071C54 /* LoginViewController.swift */,
+				59EA296D1FA1365400071C54 /* SignupViewController.swift */,
+				59EA298E1FA1D55F00071C54 /* AuthenticationViewController.swift */,
+			);
+			name = Authentication;
+			sourceTree = "<group>";
+		};
+		59EA29781FA13B9F00071C54 /* Tabs */ = {
+			isa = PBXGroup;
+			children = (
+				59EA29701FA1370E00071C54 /* HomeViewController.swift */,
+				59EA29721FA1372300071C54 /* ExploreViewController.swift */,
+				59EA297F1FA1CCF500071C54 /* AddPostViewController.swift */,
+				59EA29741FA13B8700071C54 /* TimelineViewController.swift */,
+				59EA29761FA13B9500071C54 /* MeViewController.swift */,
+			);
+			name = Tabs;
+			sourceTree = "<group>";
+		};
+		59EA29891FA1CFAF00071C54 /* Content Views */ = {
+			isa = PBXGroup;
+			children = (
+				59D3756C1FAB0697004F35E4 /* BasicContentView.swift */,
+				59EA29851FA1CFAC00071C54 /* BounceContentView.swift */,
+			);
+			name = "Content Views";
+			sourceTree = "<group>";
+		};
+		779A87B212FCFD697100AA8F /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				C4667A0CCDC1E8075977F688 /* Pods_Traveler.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		EF46F3F008AC5CF67852B6D8 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				A71414BEBA1B456BF5661D45 /* Pods-Traveler.debug.xcconfig */,
+				5A96829AB4328AAA274B6439 /* Pods-Traveler.release.xcconfig */,
+			);
+			name = Pods;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -74,9 +160,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 59EA29681FA102D800071C54 /* Build configuration list for PBXNativeTarget "Traveler" */;
 			buildPhases = (
+				B2156E7B14B1F5D6C2DFD97A /* [CP] Check Pods Manifest.lock */,
 				59EA29501FA102D800071C54 /* Sources */,
 				59EA29511FA102D800071C54 /* Frameworks */,
 				59EA29521FA102D800071C54 /* Resources */,
+				D3AF9E551B974D77B9CDF1C7 /* [CP] Embed Pods Frameworks */,
+				85FCF4FD85A7ACF5B2247089 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -135,14 +224,72 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		85FCF4FD85A7ACF5B2247089 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Traveler/Pods-Traveler-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		B2156E7B14B1F5D6C2DFD97A /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		D3AF9E551B974D77B9CDF1C7 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Traveler/Pods-Traveler-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		59EA29501FA102D800071C54 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				59EA295C1FA102D800071C54 /* SecondViewController.swift in Sources */,
+				59EA29801FA1CCF500071C54 /* AddPostViewController.swift in Sources */,
+				59EA29771FA13B9500071C54 /* MeViewController.swift in Sources */,
+				59EA296C1FA135FE00071C54 /* LoginViewController.swift in Sources */,
+				59EA296E1FA1365400071C54 /* SignupViewController.swift in Sources */,
 				59EA29581FA102D800071C54 /* AppDelegate.swift in Sources */,
-				59EA295A1FA102D800071C54 /* FirstViewController.swift in Sources */,
+				59D3756D1FAB0697004F35E4 /* BasicContentView.swift in Sources */,
+				59B045BC1FAD24E4007AFB1B /* Globals.swift in Sources */,
+				59EA29751FA13B8700071C54 /* TimelineViewController.swift in Sources */,
+				59EA29731FA1372300071C54 /* ExploreViewController.swift in Sources */,
+				59EA298F1FA1D55F00071C54 /* AuthenticationViewController.swift in Sources */,
+				59EA29871FA1CFAC00071C54 /* BounceContentView.swift in Sources */,
+				59EA298D1FA1D0C700071C54 /* TabBarController.swift in Sources */,
+				59EA29711FA1370E00071C54 /* HomeViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -261,6 +408,7 @@
 		};
 		59EA29691FA102D800071C54 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = A71414BEBA1B456BF5661D45 /* Pods-Traveler.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = XWN7GG4N9P;
@@ -274,6 +422,7 @@
 		};
 		59EA296A1FA102D800071C54 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 5A96829AB4328AAA274B6439 /* Pods-Traveler.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = XWN7GG4N9P;
@@ -304,6 +453,7 @@
 				59EA296A1FA102D800071C54 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
