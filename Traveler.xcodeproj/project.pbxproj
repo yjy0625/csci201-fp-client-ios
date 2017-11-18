@@ -7,7 +7,19 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		5909FCF115C81936227EB0D3 /* Pods_Traveler.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C4667A0CCDC1E8075977F688 /* Pods_Traveler.framework */; };
+		59814E841FBE5C620095FE7D /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59814E831FBE5C620095FE7D /* User.swift */; };
+		59814E861FBE5DD50095FE7D /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59814E851FBE5DD50095FE7D /* Post.swift */; };
+		59814E881FBE5FE70095FE7D /* Place.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59814E871FBE5FE70095FE7D /* Place.swift */; };
+		59814E9A1FBECE970095FE7D /* HomeViewStatsCellCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59814E991FBECE970095FE7D /* HomeViewStatsCellCollectionViewCell.swift */; };
+		59814E9C1FBED8890095FE7D /* MapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59814E9B1FBED8890095FE7D /* MapView.swift */; };
+		59814E9E1FBEE06C0095FE7D /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59814E9D1FBEE06C0095FE7D /* Extensions.swift */; };
+		59814EA01FBEE3780095FE7D /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 59814E9F1FBEE36F0095FE7D /* CoreLocation.framework */; };
+		59814EA21FBF52E70095FE7D /* TextViewFixed.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59814EA11FBF52E70095FE7D /* TextViewFixed.swift */; };
+		59814EA41FBF556D0095FE7D /* SingleImageTimelineTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59814EA31FBF556D0095FE7D /* SingleImageTimelineTableViewCell.swift */; };
+		59814EA61FBF5B270095FE7D /* NoImageTimelineTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59814EA51FBF5B270095FE7D /* NoImageTimelineTableViewCell.swift */; };
+		59814EA81FBF5F2A0095FE7D /* MultipleImageTimelineTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59814EA71FBF5F2A0095FE7D /* MultipleImageTimelineTableViewCell.swift */; };
+		59814EAA1FBF6DF00095FE7D /* PlaceholderTimelineTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59814EA91FBF6DF00095FE7D /* PlaceholderTimelineTableViewCell.swift */; };
+		59814EAE1FBF969D0095FE7D /* TimelineTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59814EAD1FBF969C0095FE7D /* TimelineTableViewCell.swift */; };
 		59B045BC1FAD24E4007AFB1B /* Globals.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59B045BB1FAD24E4007AFB1B /* Globals.swift */; };
 		59D3756D1FAB0697004F35E4 /* BasicContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59D3756C1FAB0697004F35E4 /* BasicContentView.swift */; };
 		59EA29581FA102D800071C54 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59EA29571FA102D800071C54 /* AppDelegate.swift */; };
@@ -24,9 +36,26 @@
 		59EA29871FA1CFAC00071C54 /* BounceContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59EA29851FA1CFAC00071C54 /* BounceContentView.swift */; };
 		59EA298D1FA1D0C700071C54 /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59EA298C1FA1D0C700071C54 /* TabBarController.swift */; };
 		59EA298F1FA1D55F00071C54 /* AuthenticationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59EA298E1FA1D55F00071C54 /* AuthenticationViewController.swift */; };
+		91A0A66CD2D9F6DC5D1B6C4A /* Pods_Traveler.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E2D20B44CF8644C891033C22 /* Pods_Traveler.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		14DAA0C330B087E7F8383660 /* Pods-Traveler.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Traveler.release.xcconfig"; path = "Pods/Target Support Files/Pods-Traveler/Pods-Traveler.release.xcconfig"; sourceTree = "<group>"; };
+		1DCB9AB0558F084A1DFB749C /* Pods-Traveler.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Traveler.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Traveler/Pods-Traveler.debug.xcconfig"; sourceTree = "<group>"; };
+		59814E831FBE5C620095FE7D /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = User.swift; path = Models/User.swift; sourceTree = "<group>"; };
+		59814E851FBE5DD50095FE7D /* Post.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Post.swift; path = Models/Post.swift; sourceTree = "<group>"; };
+		59814E871FBE5FE70095FE7D /* Place.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Place.swift; path = Models/Place.swift; sourceTree = "<group>"; };
+		59814E991FBECE970095FE7D /* HomeViewStatsCellCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = HomeViewStatsCellCollectionViewCell.swift; path = Tabs/HomeViewStatsCellCollectionViewCell.swift; sourceTree = "<group>"; };
+		59814E9B1FBED8890095FE7D /* MapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = MapView.swift; path = "Supporting Files/MapView.swift"; sourceTree = "<group>"; };
+		59814E9D1FBEE06C0095FE7D /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Extensions.swift; path = "Supporting Files/Extensions.swift"; sourceTree = "<group>"; };
+		59814E9F1FBEE36F0095FE7D /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		59814EA11FBF52E70095FE7D /* TextViewFixed.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = TextViewFixed.swift; path = "Supporting Files/TextViewFixed.swift"; sourceTree = "<group>"; };
+		59814EA31FBF556D0095FE7D /* SingleImageTimelineTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SingleImageTimelineTableViewCell.swift; path = Tabs/SingleImageTimelineTableViewCell.swift; sourceTree = "<group>"; };
+		59814EA51FBF5B270095FE7D /* NoImageTimelineTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = NoImageTimelineTableViewCell.swift; path = Tabs/NoImageTimelineTableViewCell.swift; sourceTree = "<group>"; };
+		59814EA71FBF5F2A0095FE7D /* MultipleImageTimelineTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = MultipleImageTimelineTableViewCell.swift; path = Tabs/MultipleImageTimelineTableViewCell.swift; sourceTree = "<group>"; };
+		59814EA91FBF6DF00095FE7D /* PlaceholderTimelineTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = PlaceholderTimelineTableViewCell.swift; path = Tabs/PlaceholderTimelineTableViewCell.swift; sourceTree = "<group>"; };
+		59814EAC1FBF707E0095FE7D /* Traveler-Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Traveler-Bridging-Header.h"; sourceTree = "<group>"; };
+		59814EAD1FBF969C0095FE7D /* TimelineTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimelineTableViewCell.swift; sourceTree = "<group>"; };
 		59B045BB1FAD24E4007AFB1B /* Globals.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Globals.swift; path = "Supporting Files/Globals.swift"; sourceTree = "<group>"; };
 		59D3756C1FAB0697004F35E4 /* BasicContentView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BasicContentView.swift; path = ContentViews/BasicContentView.swift; sourceTree = "<group>"; };
 		59EA29541FA102D800071C54 /* Traveler.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Traveler.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -45,9 +74,7 @@
 		59EA29851FA1CFAC00071C54 /* BounceContentView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BounceContentView.swift; path = ContentViews/BounceContentView.swift; sourceTree = "<group>"; };
 		59EA298C1FA1D0C700071C54 /* TabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
 		59EA298E1FA1D55F00071C54 /* AuthenticationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AuthenticationViewController.swift; path = Authentication/AuthenticationViewController.swift; sourceTree = "<group>"; };
-		5A96829AB4328AAA274B6439 /* Pods-Traveler.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Traveler.release.xcconfig"; path = "Pods/Target Support Files/Pods-Traveler/Pods-Traveler.release.xcconfig"; sourceTree = "<group>"; };
-		A71414BEBA1B456BF5661D45 /* Pods-Traveler.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Traveler.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Traveler/Pods-Traveler.debug.xcconfig"; sourceTree = "<group>"; };
-		C4667A0CCDC1E8075977F688 /* Pods_Traveler.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Traveler.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		E2D20B44CF8644C891033C22 /* Pods_Traveler.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Traveler.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -55,17 +82,34 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5909FCF115C81936227EB0D3 /* Pods_Traveler.framework in Frameworks */,
+				59814EA01FBEE3780095FE7D /* CoreLocation.framework in Frameworks */,
+				91A0A66CD2D9F6DC5D1B6C4A /* Pods_Traveler.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		59814E821FBE5C4A0095FE7D /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				59814E831FBE5C620095FE7D /* User.swift */,
+				59814E851FBE5DD50095FE7D /* Post.swift */,
+				59814E871FBE5FE70095FE7D /* Place.swift */,
+			);
+			name = Models;
+			sourceTree = "<group>";
+		};
 		59B045BA1FAD24B3007AFB1B /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				59EA29651FA102D800071C54 /* Info.plist */,
+				59814E821FBE5C4A0095FE7D /* Models */,
 				59B045BB1FAD24E4007AFB1B /* Globals.swift */,
+				59814E9B1FBED8890095FE7D /* MapView.swift */,
+				59814E9D1FBEE06C0095FE7D /* Extensions.swift */,
+				59814EA11FBF52E70095FE7D /* TextViewFixed.swift */,
+				59814EAC1FBF707E0095FE7D /* Traveler-Bridging-Header.h */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -75,8 +119,8 @@
 			children = (
 				59EA29561FA102D800071C54 /* Traveler */,
 				59EA29551FA102D800071C54 /* Products */,
-				EF46F3F008AC5CF67852B6D8 /* Pods */,
-				779A87B212FCFD697100AA8F /* Frameworks */,
+				90643DE1991BE08EBF481478 /* Pods */,
+				F94BB7E726FF1764BFFF2C64 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -95,7 +139,6 @@
 				59EA295D1FA102D800071C54 /* Main.storyboard */,
 				59EA29601FA102D800071C54 /* Assets.xcassets */,
 				59EA29621FA102D800071C54 /* LaunchScreen.storyboard */,
-				59EA29651FA102D800071C54 /* Info.plist */,
 				59EA296F1FA1365D00071C54 /* Authentication */,
 				59EA298C1FA1D0C700071C54 /* TabBarController.swift */,
 				59EA29891FA1CFAF00071C54 /* Content Views */,
@@ -119,9 +162,15 @@
 			isa = PBXGroup;
 			children = (
 				59EA29701FA1370E00071C54 /* HomeViewController.swift */,
+				59814E991FBECE970095FE7D /* HomeViewStatsCellCollectionViewCell.swift */,
 				59EA29721FA1372300071C54 /* ExploreViewController.swift */,
 				59EA297F1FA1CCF500071C54 /* AddPostViewController.swift */,
 				59EA29741FA13B8700071C54 /* TimelineViewController.swift */,
+				59814EA91FBF6DF00095FE7D /* PlaceholderTimelineTableViewCell.swift */,
+				59814EAD1FBF969C0095FE7D /* TimelineTableViewCell.swift */,
+				59814EA51FBF5B270095FE7D /* NoImageTimelineTableViewCell.swift */,
+				59814EA31FBF556D0095FE7D /* SingleImageTimelineTableViewCell.swift */,
+				59814EA71FBF5F2A0095FE7D /* MultipleImageTimelineTableViewCell.swift */,
 				59EA29761FA13B9500071C54 /* MeViewController.swift */,
 			);
 			name = Tabs;
@@ -136,21 +185,22 @@
 			name = "Content Views";
 			sourceTree = "<group>";
 		};
-		779A87B212FCFD697100AA8F /* Frameworks */ = {
+		90643DE1991BE08EBF481478 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				C4667A0CCDC1E8075977F688 /* Pods_Traveler.framework */,
-			);
-			name = Frameworks;
-			sourceTree = "<group>";
-		};
-		EF46F3F008AC5CF67852B6D8 /* Pods */ = {
-			isa = PBXGroup;
-			children = (
-				A71414BEBA1B456BF5661D45 /* Pods-Traveler.debug.xcconfig */,
-				5A96829AB4328AAA274B6439 /* Pods-Traveler.release.xcconfig */,
+				1DCB9AB0558F084A1DFB749C /* Pods-Traveler.debug.xcconfig */,
+				14DAA0C330B087E7F8383660 /* Pods-Traveler.release.xcconfig */,
 			);
 			name = Pods;
+			sourceTree = "<group>";
+		};
+		F94BB7E726FF1764BFFF2C64 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				59814E9F1FBEE36F0095FE7D /* CoreLocation.framework */,
+				E2D20B44CF8644C891033C22 /* Pods_Traveler.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -160,12 +210,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 59EA29681FA102D800071C54 /* Build configuration list for PBXNativeTarget "Traveler" */;
 			buildPhases = (
-				B2156E7B14B1F5D6C2DFD97A /* [CP] Check Pods Manifest.lock */,
+				A5CF79D256434154A3D1FC47 /* [CP] Check Pods Manifest.lock */,
 				59EA29501FA102D800071C54 /* Sources */,
 				59EA29511FA102D800071C54 /* Frameworks */,
 				59EA29521FA102D800071C54 /* Resources */,
-				D3AF9E551B974D77B9CDF1C7 /* [CP] Embed Pods Frameworks */,
-				85FCF4FD85A7ACF5B2247089 /* [CP] Copy Pods Resources */,
+				CAC3A33ACE88C7303A6F0EEB /* [CP] Embed Pods Frameworks */,
+				6D63B361686A9C16E6F97B2E /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -188,7 +238,7 @@
 				TargetAttributes = {
 					59EA29531FA102D800071C54 = {
 						CreatedOnToolsVersion = 8.2.1;
-						DevelopmentTeam = XWN7GG4N9P;
+						DevelopmentTeam = 64RB4P5EF6;
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -225,7 +275,7 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		85FCF4FD85A7ACF5B2247089 /* [CP] Copy Pods Resources */ = {
+		6D63B361686A9C16E6F97B2E /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -240,30 +290,58 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Traveler/Pods-Traveler-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		B2156E7B14B1F5D6C2DFD97A /* [CP] Check Pods Manifest.lock */ = {
+		A5CF79D256434154A3D1FC47 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
 			);
 			name = "[CP] Check Pods Manifest.lock";
 			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Traveler-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		D3AF9E551B974D77B9CDF1C7 /* [CP] Embed Pods Frameworks */ = {
+		CAC3A33ACE88C7303A6F0EEB /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-Traveler/Pods-Traveler-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
+				"${BUILT_PRODUCTS_DIR}/AlamofireObjectMapper/AlamofireObjectMapper.framework",
+				"${BUILT_PRODUCTS_DIR}/ESTabBarController-swift/ESTabBarController_swift.framework",
+				"${BUILT_PRODUCTS_DIR}/Hero/Hero.framework",
+				"${PODS_ROOT}/Mapbox-iOS-SDK/dynamic/Mapbox.framework",
+				"${PODS_ROOT}/Mapbox-iOS-SDK/dynamic/Mapbox.framework.dSYM",
+				"${BUILT_PRODUCTS_DIR}/ObjectMapper/ObjectMapper.framework",
+				"${BUILT_PRODUCTS_DIR}/SDWebImage/SDWebImage.framework",
+				"${BUILT_PRODUCTS_DIR}/Shimmer/Shimmer.framework",
+				"${BUILT_PRODUCTS_DIR}/SkyFloatingLabelTextField/SkyFloatingLabelTextField.framework",
+				"${BUILT_PRODUCTS_DIR}/SwiftyButton/SwiftyButton.framework",
+				"${BUILT_PRODUCTS_DIR}/pop/pop.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AlamofireObjectMapper.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ESTabBarController_swift.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Hero.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Mapbox.framework",
+				"${DWARF_DSYM_FOLDER_PATH}/Mapbox.framework.dSYM",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ObjectMapper.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SDWebImage.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Shimmer.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SkyFloatingLabelTextField.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyButton.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/pop.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -278,17 +356,29 @@
 			buildActionMask = 2147483647;
 			files = (
 				59EA29801FA1CCF500071C54 /* AddPostViewController.swift in Sources */,
+				59814EA61FBF5B270095FE7D /* NoImageTimelineTableViewCell.swift in Sources */,
+				59814EAE1FBF969D0095FE7D /* TimelineTableViewCell.swift in Sources */,
 				59EA29771FA13B9500071C54 /* MeViewController.swift in Sources */,
 				59EA296C1FA135FE00071C54 /* LoginViewController.swift in Sources */,
 				59EA296E1FA1365400071C54 /* SignupViewController.swift in Sources */,
 				59EA29581FA102D800071C54 /* AppDelegate.swift in Sources */,
 				59D3756D1FAB0697004F35E4 /* BasicContentView.swift in Sources */,
+				59814E9A1FBECE970095FE7D /* HomeViewStatsCellCollectionViewCell.swift in Sources */,
+				59814EA41FBF556D0095FE7D /* SingleImageTimelineTableViewCell.swift in Sources */,
+				59814E9E1FBEE06C0095FE7D /* Extensions.swift in Sources */,
+				59814E9C1FBED8890095FE7D /* MapView.swift in Sources */,
+				59814E841FBE5C620095FE7D /* User.swift in Sources */,
+				59814EA21FBF52E70095FE7D /* TextViewFixed.swift in Sources */,
 				59B045BC1FAD24E4007AFB1B /* Globals.swift in Sources */,
 				59EA29751FA13B8700071C54 /* TimelineViewController.swift in Sources */,
+				59814E861FBE5DD50095FE7D /* Post.swift in Sources */,
 				59EA29731FA1372300071C54 /* ExploreViewController.swift in Sources */,
+				59814E881FBE5FE70095FE7D /* Place.swift in Sources */,
 				59EA298F1FA1D55F00071C54 /* AuthenticationViewController.swift in Sources */,
 				59EA29871FA1CFAC00071C54 /* BounceContentView.swift in Sources */,
 				59EA298D1FA1D0C700071C54 /* TabBarController.swift in Sources */,
+				59814EA81FBF5F2A0095FE7D /* MultipleImageTimelineTableViewCell.swift in Sources */,
+				59814EAA1FBF6DF00095FE7D /* PlaceholderTimelineTableViewCell.swift in Sources */,
 				59EA29711FA1370E00071C54 /* HomeViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -408,28 +498,30 @@
 		};
 		59EA29691FA102D800071C54 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = A71414BEBA1B456BF5661D45 /* Pods-Traveler.debug.xcconfig */;
+			baseConfigurationReference = 1DCB9AB0558F084A1DFB749C /* Pods-Traveler.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = XWN7GG4N9P;
+				DEVELOPMENT_TEAM = 64RB4P5EF6;
 				INFOPLIST_FILE = Traveler/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = usc.jingyuny.Traveler;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "Traveler/Traveler-Bridging-Header.h";
 				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
 		};
 		59EA296A1FA102D800071C54 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 5A96829AB4328AAA274B6439 /* Pods-Traveler.release.xcconfig */;
+			baseConfigurationReference = 14DAA0C330B087E7F8383660 /* Pods-Traveler.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = XWN7GG4N9P;
+				DEVELOPMENT_TEAM = 64RB4P5EF6;
 				INFOPLIST_FILE = Traveler/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = usc.jingyuny.Traveler;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "Traveler/Traveler-Bridging-Header.h";
 				SWIFT_VERSION = 3.0;
 			};
 			name = Release;

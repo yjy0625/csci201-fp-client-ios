@@ -7,6 +7,8 @@
 //
 
 import UIKit
+import Alamofire
+import AlamofireObjectMapper
 import SkyFloatingLabelTextField
 import SwiftyButton
 
@@ -14,7 +16,11 @@ class LoginViewController: AuthenticationViewController, UITextFieldDelegate {
     
     @IBOutlet weak var usernamePlaceholder: UILabel!
     @IBOutlet weak var passwordPlaceholder: UILabel!
+    @IBOutlet weak var signInButton: FlatButton!
     @IBOutlet weak var noAccountLabel: UILabel!
+    
+    private weak var usernameTextField: SkyFloatingLabelTextField!
+    private weak var passwordTextField: SkyFloatingLabelTextField!
     
     private enum LoginField: String {
         case Username, Password
@@ -23,9 +29,11 @@ class LoginViewController: AuthenticationViewController, UITextFieldDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        let usernameTextField = SkyFloatingLabelTextField(frame: usernamePlaceholder.frame)
+        usernameTextField = SkyFloatingLabelTextField(frame: usernamePlaceholder.frame)
         usernameTextField.placeholder = LoginField.Username.rawValue
         usernameTextField.title = LoginField.Username.rawValue
+        usernameTextField.autocapitalizationType = .none
+        usernameTextField.autocorrectionType = .no
         usernameTextField.font = UIFont(name: "Avenir", size: 17.0)
         
         usernameTextField.tintColor = Globals.ThemeColor
@@ -34,9 +42,11 @@ class LoginViewController: AuthenticationViewController, UITextFieldDelegate {
         
         self.view.addSubview(usernameTextField)
         
-        let passwordTextField = SkyFloatingLabelTextField(frame: passwordPlaceholder.frame)
+        passwordTextField = SkyFloatingLabelTextField(frame: passwordPlaceholder.frame)
         passwordTextField.placeholder = LoginField.Password.rawValue
         passwordTextField.title = LoginField.Password.rawValue
+        passwordTextField.autocapitalizationType = .none
+        passwordTextField.autocorrectionType = .no
         passwordTextField.font = UIFont(name: "Avenir", size: 17.0)
         passwordTextField.isSecureTextEntry = true
         
@@ -55,11 +65,67 @@ class LoginViewController: AuthenticationViewController, UITextFieldDelegate {
     }
     
     @IBAction func signin(_ sender: UIButton) {
-        performSegue(withIdentifier: "enterHomepage", sender: self)
+        signInButton.titleLabel?.text = "Logging in..."
+        signInButton.isEnabled = false
+        
+        usernameTextField.errorMessage = ""
+        passwordTextField.errorMessage = ""
+        
+        if let username = usernameTextField.text, let password = passwordTextField.text, usernameTextField.text != "", passwordTextField.text != "" {
+            let loginRequestUrl: String = "\(Globals.restDir)/signin/email/\(username)/password/\(password)"
+            
+            Alamofire.request(loginRequestUrl, method: .post).responseObject { (response: DataResponse<User>) in
+                if let statusCode = response.response?.statusCode {
+                    
+                    switch statusCode {
+                    case 200:
+                        if let user = response.result.value {
+                            Globals.user = user
+                            self.performSegue(withIdentifier: "enterHomepage", sender: self)
+                        }
+                        else {
+                            self.showError()
+                        }
+                        break
+                    case 404:
+                        self.usernameTextField.errorMessage = "User not found"
+                        break
+                    case 400:
+                        self.passwordTextField.errorMessage = "Password incorrect"
+                        break
+                    default:
+                        break
+                    }
+                }
+                else {
+                    self.showError()
+                }
+                
+                self.signInButton.titleLabel?.text = "Login"
+                self.signInButton.isEnabled = true
+            }
+        }
+        else {
+            if usernameTextField.text == nil || usernameTextField.text == "" {
+                usernameTextField.errorMessage = "Username cannot be empty"
+            }
+            else if passwordTextField.text == nil || passwordTextField.text == "" {
+                passwordTextField.errorMessage = "Password cannot be empty"
+            }
+            
+            self.signInButton.titleLabel?.text = "Login"
+            self.signInButton.isEnabled = true
+        }
     }
     
     @IBAction func switchToSignup(_ sender: UIButton) {
         performSegue(withIdentifier: "enterSignupPage", sender: self)
+    }
+    
+    private func showError() {
+        let alert = UIAlertController(title: "Network Error", message: "Cannot get response from server. Please try again later.", preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+        self.present(alert, animated: true, completion: nil)
     }
     
     // Mark: - UI Text Field Delegate
