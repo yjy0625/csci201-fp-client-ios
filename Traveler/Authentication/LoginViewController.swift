@@ -58,6 +58,11 @@ class LoginViewController: AuthenticationViewController, UITextFieldDelegate {
         
         noAccountLabel.font = UIFont(name: "Avenir", size: 13.0)
     }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        usernameTextField.text = ""
+        passwordTextField.text = ""
+    }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -155,5 +160,7 @@ class LoginViewController: AuthenticationViewController, UITextFieldDelegate {
         // Pass the selected object to the new view controller.
     }
     */
+    
+    @IBAction func unwindToLoginView(segue: UIStoryboardSegue) {}
 
 }

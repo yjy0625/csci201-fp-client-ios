@@ -8,6 +8,7 @@
 
 import UIKit
 import ObjectMapper
+import CoreLocation
 
 class Place: NSObject, Mappable {
 
@@ -27,12 +28,16 @@ class Place: NSObject, Mappable {
         self.lat        <- map["lat"]
         self.lon        <- map["lon"]
         self.points     <- map["points"]
-        self.avatarUrl  <- map["avatar_url"]
-        self.numVisits  <- map["num_visits"]
+        self.avatarUrl  <- map["avatarUrl"]
+        self.numVisits  <- map["numVisits"]
     }
     
     public func incNumOfVisit() {
         numVisits = numVisits + 1
+    }
+    
+    public func getLocation() -> CLLocationCoordinate2D {
+        return CLLocationCoordinate2D.init(latitude: lat, longitude: lon)
     }
     
 }

@@ -44,7 +44,11 @@
 	</array>
 	<key>MGLMapboxAccessToken</key>
 	<string>pk.eyJ1IjoicHZ4eWllIiwiYSI6ImNqNDUwbndteTF1NWozMnJ1bjA2a2xrOWoifQ.Dkr7hVK4a9hpq6ReN66ZsA</string>
+	<key>NSPhotoLibraryUsageDescription</key>
+	<string>Get avatar image and post images.</string>
 	<key>NSLocationWhenInUseUsageDescription</key>
-	<string>Show your location in the map and help improve user experience.</string>
+	<string>Provide better recommendations of services nearby.</string>
+	<key>NSCameraUsageDescription</key>
+	<string>Get avatar image and post images.</string>
 </dict>
 </plist>

@@ -9,19 +9,32 @@
 import UIKit
 import CoreLocation
 import Alamofire
+import Mapbox
+import Hero
 
-class HomeViewController: UIViewController, CLLocationManagerDelegate {
+class HomeViewController: UIViewController, CLLocationManagerDelegate, MGLMapViewDelegate {
 
     let locationManager = CLLocationManager()
     @IBOutlet weak var mapView: MapView!
     @IBOutlet weak var statsCollectionView: UICollectionView!
     
+    fileprivate var icon = UIImage.init(named: "markerIcon")
+    fileprivate var annotations = [String: MarkerAnnotation]()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        mapView.heroID = "map"
+        statsCollectionView.heroModifiers = [.fade, .translate(y: -100)]
+        
         statsCollectionView.dataSource = self
         
-        mapView.setCenter(CLLocationCoordinate2D(latitude: 34.0224, longitude: -118.2851), zoomLevel: 9, animated: false)
+        mapView.delegate = self
+        if let styleUrl = try? "mapbox://styles/pvxyie/cj8r298c7b5ra2ts1yx9i7pzz".asURL() {
+            mapView.styleURL = styleUrl
+        }
+        mapView.setTargetCoordinate(CLLocationCoordinate2D.init(latitude: 34.0224, longitude: -118.2851), animated: false)
+        mapView.setZoomLevel(13.0, animated: false)
         
         // Ask for Authorisation from the User.
         self.locationManager.requestAlwaysAuthorization()
@@ -41,28 +54,93 @@ class HomeViewController: UIViewController, CLLocationManagerDelegate {
         // Dispose of any resources that can be recreated.
     }
     
-    private func updateMapAtCenter(coordinate: CLLocationCoordinate2D) {
+    fileprivate func updateMapAtCenter(coordinate: CLLocationCoordinate2D) {
         mapView.setCenter(coordinate, animated: true)
+        let visibleMapBounds = self.mapView.visibleCoordinateBounds
+        let minLat = visibleMapBounds.sw.latitude
+        let maxLat = visibleMapBounds.ne.latitude
+        let minLon = visibleMapBounds.sw.longitude
+        let maxLon = visibleMapBounds.ne.longitude
+        
+        let mapRequestUrl = "\(Globals.restDir)/map/inArea/latBetween/\(minLat)/and/\(maxLat)/lonBetween/\(minLon)/and/\(maxLon)"
+        Alamofire.request(mapRequestUrl).responseArray { (response: DataResponse<[Place]>) in
+            
+            guard let places = response.result.value else {
+                NSLog("Cannot get places data")
+                return
+            }
+            
+            for place in places {
+                if self.annotations[place.id!] != nil {
+                    continue
+                }
+                
+                let marker = MarkerAnnotation(
+                    coordinate: CLLocationCoordinate2D(latitude: place.lat, longitude: place.lon),
+                    data: place,
+                    title: place.name,
+                    subtitle: "Visit Count: \(place.numVisits!)"
+                )
+                self.mapView.addAnnotation(marker)
+                self.annotations[place.id!] = marker
+            }
+            
+        }
     }
     
     // MARK: - CL Location Manager Delegate
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         if let locValue: CLLocationCoordinate2D = manager.location?.coordinate {
+            Globals.location = locValue
             updateMapAtCenter(coordinate: locValue)
         }
     }
     
-
-    /*
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+        if segue.identifier == "showPlaceDetail", let annotation = sender as? MarkerAnnotation {
+            if let dvc = segue.destination as? PlaceDetailViewController {
+                dvc.place = annotation.data
+                dvc.source = "home"
+            }
+        }
     }
-    */
+    
+    @IBAction func unwindToHomeView(segue: UIStoryboardSegue) {}
 
+}
+
+// MARK: - MGLMapViewDelegate methods
+extension HomeViewController {
+    func mapView(_ mapView: MGLMapView, regionDidChangeAnimated animated: Bool) {
+        updateMapAtCenter(coordinate: mapView.centerCoordinate)
+    }
+    
+    func mapView(_ mapView: MGLMapView, viewFor annotation: MGLAnnotation) -> MGLAnnotationView? {
+        let reuseIdentifier = "\(annotation.coordinate.longitude)"
+        var annotationView = mapView.dequeueReusableAnnotationView(withIdentifier: reuseIdentifier)
+        
+        if annotationView == nil {
+            annotationView = MarkerAnnotationView(reuseIdentifier: reuseIdentifier)
+            annotationView!.frame = CGRect(x: 0, y: 0, width: 10, height: 10)
+            
+            annotationView!.backgroundColor = Globals.ThemeColor
+        }
+        
+        return annotationView
+    }
+    
+    func mapView(_ mapView: MGLMapView, annotationCanShowCallout annotation: MGLAnnotation) -> Bool {
+        return false
+    }
+    
+    func mapView(_ mapView: MGLMapView, didSelect annotation: MGLAnnotation) {
+        if let annotation = annotation as? MarkerAnnotation {
+            performSegue(withIdentifier: "showPlaceDetail", sender: annotation)
+        }
+    }
 }
 
 extension HomeViewController: UICollectionViewDataSource {

@@ -20,6 +20,17 @@
 		59814EA81FBF5F2A0095FE7D /* MultipleImageTimelineTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59814EA71FBF5F2A0095FE7D /* MultipleImageTimelineTableViewCell.swift */; };
 		59814EAA1FBF6DF00095FE7D /* PlaceholderTimelineTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59814EA91FBF6DF00095FE7D /* PlaceholderTimelineTableViewCell.swift */; };
 		59814EAE1FBF969D0095FE7D /* TimelineTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59814EAD1FBF969C0095FE7D /* TimelineTableViewCell.swift */; };
+		59814EB01FC00E2E0095FE7D /* MarkerAnnotationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59814EAF1FC00E2E0095FE7D /* MarkerAnnotationView.swift */; };
+		59814EB21FC014B10095FE7D /* MarkerAnnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59814EB11FC014B10095FE7D /* MarkerAnnotation.swift */; };
+		59814EB41FC028DF0095FE7D /* PlaceDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59814EB31FC028DF0095FE7D /* PlaceDetailViewController.swift */; };
+		59814EB61FC0C0170095FE7D /* PrimaryContentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59814EB51FC0C0170095FE7D /* PrimaryContentViewController.swift */; };
+		59814EB81FC0C0270095FE7D /* DrawerContentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59814EB71FC0C0270095FE7D /* DrawerContentViewController.swift */; };
+		59814EBA1FC0C35F0095FE7D /* PlaceTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59814EB91FC0C35F0095FE7D /* PlaceTableViewCell.swift */; };
+		59814EBC1FC0C3AF0095FE7D /* NoPlaceDataTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59814EBB1FC0C3AF0095FE7D /* NoPlaceDataTableViewCell.swift */; };
+		59A148141FC17AD6007C7F93 /* SwitchButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59A148131FC17AD6007C7F93 /* SwitchButton.swift */; };
+		59A148161FC18939007C7F93 /* SelectLocationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59A148151FC18939007C7F93 /* SelectLocationViewController.swift */; };
+		59A148181FC18E11007C7F93 /* SelectLocationTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59A148171FC18E11007C7F93 /* SelectLocationTableViewCell.swift */; };
+		59A1481A1FC195DA007C7F93 /* PostImageCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59A148191FC195DA007C7F93 /* PostImageCollectionViewCell.swift */; };
 		59B045BC1FAD24E4007AFB1B /* Globals.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59B045BB1FAD24E4007AFB1B /* Globals.swift */; };
 		59D3756D1FAB0697004F35E4 /* BasicContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59D3756C1FAB0697004F35E4 /* BasicContentView.swift */; };
 		59EA29581FA102D800071C54 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59EA29571FA102D800071C54 /* AppDelegate.swift */; };
@@ -36,12 +47,12 @@
 		59EA29871FA1CFAC00071C54 /* BounceContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59EA29851FA1CFAC00071C54 /* BounceContentView.swift */; };
 		59EA298D1FA1D0C700071C54 /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59EA298C1FA1D0C700071C54 /* TabBarController.swift */; };
 		59EA298F1FA1D55F00071C54 /* AuthenticationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59EA298E1FA1D55F00071C54 /* AuthenticationViewController.swift */; };
-		91A0A66CD2D9F6DC5D1B6C4A /* Pods_Traveler.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E2D20B44CF8644C891033C22 /* Pods_Traveler.framework */; };
+		59FA650B1FC159C300F712F5 /* UserInfoTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59FA650A1FC159C300F712F5 /* UserInfoTableViewCell.swift */; };
+		60B37444A58E8A5FC2AE44BE /* Pods_Traveler.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 15BD04C856BF3534B92242E6 /* Pods_Traveler.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		14DAA0C330B087E7F8383660 /* Pods-Traveler.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Traveler.release.xcconfig"; path = "Pods/Target Support Files/Pods-Traveler/Pods-Traveler.release.xcconfig"; sourceTree = "<group>"; };
-		1DCB9AB0558F084A1DFB749C /* Pods-Traveler.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Traveler.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Traveler/Pods-Traveler.debug.xcconfig"; sourceTree = "<group>"; };
+		15BD04C856BF3534B92242E6 /* Pods_Traveler.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Traveler.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		59814E831FBE5C620095FE7D /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = User.swift; path = Models/User.swift; sourceTree = "<group>"; };
 		59814E851FBE5DD50095FE7D /* Post.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Post.swift; path = Models/Post.swift; sourceTree = "<group>"; };
 		59814E871FBE5FE70095FE7D /* Place.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Place.swift; path = Models/Place.swift; sourceTree = "<group>"; };
@@ -56,6 +67,17 @@
 		59814EA91FBF6DF00095FE7D /* PlaceholderTimelineTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = PlaceholderTimelineTableViewCell.swift; path = Tabs/PlaceholderTimelineTableViewCell.swift; sourceTree = "<group>"; };
 		59814EAC1FBF707E0095FE7D /* Traveler-Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Traveler-Bridging-Header.h"; sourceTree = "<group>"; };
 		59814EAD1FBF969C0095FE7D /* TimelineTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimelineTableViewCell.swift; sourceTree = "<group>"; };
+		59814EAF1FC00E2E0095FE7D /* MarkerAnnotationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = MarkerAnnotationView.swift; path = "Supporting Files/MarkerAnnotationView.swift"; sourceTree = "<group>"; };
+		59814EB11FC014B10095FE7D /* MarkerAnnotation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = MarkerAnnotation.swift; path = "Supporting Files/MarkerAnnotation.swift"; sourceTree = "<group>"; };
+		59814EB31FC028DF0095FE7D /* PlaceDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = PlaceDetailViewController.swift; path = Tabs/PlaceDetailViewController.swift; sourceTree = "<group>"; };
+		59814EB51FC0C0170095FE7D /* PrimaryContentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = PrimaryContentViewController.swift; path = Tabs/PrimaryContentViewController.swift; sourceTree = "<group>"; };
+		59814EB71FC0C0270095FE7D /* DrawerContentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = DrawerContentViewController.swift; path = Tabs/DrawerContentViewController.swift; sourceTree = "<group>"; };
+		59814EB91FC0C35F0095FE7D /* PlaceTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = PlaceTableViewCell.swift; path = Tabs/PlaceTableViewCell.swift; sourceTree = "<group>"; };
+		59814EBB1FC0C3AF0095FE7D /* NoPlaceDataTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = NoPlaceDataTableViewCell.swift; path = Tabs/NoPlaceDataTableViewCell.swift; sourceTree = "<group>"; };
+		59A148131FC17AD6007C7F93 /* SwitchButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SwitchButton.swift; path = "Supporting Files/SwitchButton.swift"; sourceTree = "<group>"; };
+		59A148151FC18939007C7F93 /* SelectLocationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SelectLocationViewController.swift; path = Tabs/SelectLocationViewController.swift; sourceTree = "<group>"; };
+		59A148171FC18E11007C7F93 /* SelectLocationTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SelectLocationTableViewCell.swift; path = Tabs/SelectLocationTableViewCell.swift; sourceTree = "<group>"; };
+		59A148191FC195DA007C7F93 /* PostImageCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = PostImageCollectionViewCell.swift; path = Tabs/PostImageCollectionViewCell.swift; sourceTree = "<group>"; };
 		59B045BB1FAD24E4007AFB1B /* Globals.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Globals.swift; path = "Supporting Files/Globals.swift"; sourceTree = "<group>"; };
 		59D3756C1FAB0697004F35E4 /* BasicContentView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BasicContentView.swift; path = ContentViews/BasicContentView.swift; sourceTree = "<group>"; };
 		59EA29541FA102D800071C54 /* Traveler.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Traveler.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -74,7 +96,9 @@
 		59EA29851FA1CFAC00071C54 /* BounceContentView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BounceContentView.swift; path = ContentViews/BounceContentView.swift; sourceTree = "<group>"; };
 		59EA298C1FA1D0C700071C54 /* TabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
 		59EA298E1FA1D55F00071C54 /* AuthenticationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AuthenticationViewController.swift; path = Authentication/AuthenticationViewController.swift; sourceTree = "<group>"; };
-		E2D20B44CF8644C891033C22 /* Pods_Traveler.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Traveler.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		59FA650A1FC159C300F712F5 /* UserInfoTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = UserInfoTableViewCell.swift; path = Tabs/UserInfoTableViewCell.swift; sourceTree = "<group>"; };
+		6DA8B853BAEA78CB2DB8908A /* Pods-Traveler.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Traveler.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Traveler/Pods-Traveler.debug.xcconfig"; sourceTree = "<group>"; };
+		99932D1E857853A700416C39 /* Pods-Traveler.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Traveler.release.xcconfig"; path = "Pods/Target Support Files/Pods-Traveler/Pods-Traveler.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -83,7 +107,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				59814EA01FBEE3780095FE7D /* CoreLocation.framework in Frameworks */,
-				91A0A66CD2D9F6DC5D1B6C4A /* Pods_Traveler.framework in Frameworks */,
+				60B37444A58E8A5FC2AE44BE /* Pods_Traveler.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -110,6 +134,9 @@
 				59814E9D1FBEE06C0095FE7D /* Extensions.swift */,
 				59814EA11FBF52E70095FE7D /* TextViewFixed.swift */,
 				59814EAC1FBF707E0095FE7D /* Traveler-Bridging-Header.h */,
+				59814EAF1FC00E2E0095FE7D /* MarkerAnnotationView.swift */,
+				59814EB11FC014B10095FE7D /* MarkerAnnotation.swift */,
+				59A148131FC17AD6007C7F93 /* SwitchButton.swift */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -119,8 +146,8 @@
 			children = (
 				59EA29561FA102D800071C54 /* Traveler */,
 				59EA29551FA102D800071C54 /* Products */,
-				90643DE1991BE08EBF481478 /* Pods */,
 				F94BB7E726FF1764BFFF2C64 /* Frameworks */,
+				F6CBE99D3EE33584AA10CB2E /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -163,8 +190,16 @@
 			children = (
 				59EA29701FA1370E00071C54 /* HomeViewController.swift */,
 				59814E991FBECE970095FE7D /* HomeViewStatsCellCollectionViewCell.swift */,
+				59814EB31FC028DF0095FE7D /* PlaceDetailViewController.swift */,
 				59EA29721FA1372300071C54 /* ExploreViewController.swift */,
+				59814EB51FC0C0170095FE7D /* PrimaryContentViewController.swift */,
+				59814EB71FC0C0270095FE7D /* DrawerContentViewController.swift */,
+				59814EB91FC0C35F0095FE7D /* PlaceTableViewCell.swift */,
+				59814EBB1FC0C3AF0095FE7D /* NoPlaceDataTableViewCell.swift */,
 				59EA297F1FA1CCF500071C54 /* AddPostViewController.swift */,
+				59A148191FC195DA007C7F93 /* PostImageCollectionViewCell.swift */,
+				59A148151FC18939007C7F93 /* SelectLocationViewController.swift */,
+				59A148171FC18E11007C7F93 /* SelectLocationTableViewCell.swift */,
 				59EA29741FA13B8700071C54 /* TimelineViewController.swift */,
 				59814EA91FBF6DF00095FE7D /* PlaceholderTimelineTableViewCell.swift */,
 				59814EAD1FBF969C0095FE7D /* TimelineTableViewCell.swift */,
@@ -172,6 +207,7 @@
 				59814EA31FBF556D0095FE7D /* SingleImageTimelineTableViewCell.swift */,
 				59814EA71FBF5F2A0095FE7D /* MultipleImageTimelineTableViewCell.swift */,
 				59EA29761FA13B9500071C54 /* MeViewController.swift */,
+				59FA650A1FC159C300F712F5 /* UserInfoTableViewCell.swift */,
 			);
 			name = Tabs;
 			sourceTree = "<group>";
@@ -185,11 +221,11 @@
 			name = "Content Views";
 			sourceTree = "<group>";
 		};
-		90643DE1991BE08EBF481478 /* Pods */ = {
+		F6CBE99D3EE33584AA10CB2E /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				1DCB9AB0558F084A1DFB749C /* Pods-Traveler.debug.xcconfig */,
-				14DAA0C330B087E7F8383660 /* Pods-Traveler.release.xcconfig */,
+				6DA8B853BAEA78CB2DB8908A /* Pods-Traveler.debug.xcconfig */,
+				99932D1E857853A700416C39 /* Pods-Traveler.release.xcconfig */,
 			);
 			name = Pods;
 			sourceTree = "<group>";
@@ -198,7 +234,7 @@
 			isa = PBXGroup;
 			children = (
 				59814E9F1FBEE36F0095FE7D /* CoreLocation.framework */,
-				E2D20B44CF8644C891033C22 /* Pods_Traveler.framework */,
+				15BD04C856BF3534B92242E6 /* Pods_Traveler.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -210,12 +246,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 59EA29681FA102D800071C54 /* Build configuration list for PBXNativeTarget "Traveler" */;
 			buildPhases = (
-				A5CF79D256434154A3D1FC47 /* [CP] Check Pods Manifest.lock */,
+				7D71045E40A3B398EAB6E101 /* [CP] Check Pods Manifest.lock */,
 				59EA29501FA102D800071C54 /* Sources */,
 				59EA29511FA102D800071C54 /* Frameworks */,
 				59EA29521FA102D800071C54 /* Resources */,
-				CAC3A33ACE88C7303A6F0EEB /* [CP] Embed Pods Frameworks */,
-				6D63B361686A9C16E6F97B2E /* [CP] Copy Pods Resources */,
+				AF29CDDE67ECFEB1E784E5BA /* [CP] Embed Pods Frameworks */,
+				B3B5DFF4CF08BCA49D2F471D /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -233,12 +269,13 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0820;
-				LastUpgradeCheck = 0820;
+				LastUpgradeCheck = 0910;
 				ORGANIZATIONNAME = "Jingyun Yang";
 				TargetAttributes = {
 					59EA29531FA102D800071C54 = {
 						CreatedOnToolsVersion = 8.2.1;
 						DevelopmentTeam = 64RB4P5EF6;
+						LastSwiftMigration = 0910;
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -275,22 +312,7 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		6D63B361686A9C16E6F97B2E /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Traveler/Pods-Traveler-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		A5CF79D256434154A3D1FC47 /* [CP] Check Pods Manifest.lock */ = {
+		7D71045E40A3B398EAB6E101 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -308,7 +330,7 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		CAC3A33ACE88C7303A6F0EEB /* [CP] Embed Pods Frameworks */ = {
+		AF29CDDE67ECFEB1E784E5BA /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -317,14 +339,21 @@
 				"${SRCROOT}/Pods/Target Support Files/Pods-Traveler/Pods-Traveler-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
 				"${BUILT_PRODUCTS_DIR}/AlamofireObjectMapper/AlamofireObjectMapper.framework",
+				"${BUILT_PRODUCTS_DIR}/Cache/Cache.framework",
 				"${BUILT_PRODUCTS_DIR}/ESTabBarController-swift/ESTabBarController_swift.framework",
 				"${BUILT_PRODUCTS_DIR}/Hero/Hero.framework",
+				"${BUILT_PRODUCTS_DIR}/Hue/Hue.framework",
+				"${BUILT_PRODUCTS_DIR}/ImagePicker/ImagePicker.framework",
+				"${BUILT_PRODUCTS_DIR}/Imaginary/Imaginary.framework",
+				"${BUILT_PRODUCTS_DIR}/Lightbox/Lightbox.framework",
 				"${PODS_ROOT}/Mapbox-iOS-SDK/dynamic/Mapbox.framework",
 				"${PODS_ROOT}/Mapbox-iOS-SDK/dynamic/Mapbox.framework.dSYM",
 				"${BUILT_PRODUCTS_DIR}/ObjectMapper/ObjectMapper.framework",
+				"${BUILT_PRODUCTS_DIR}/Pulley/Pulley.framework",
 				"${BUILT_PRODUCTS_DIR}/SDWebImage/SDWebImage.framework",
 				"${BUILT_PRODUCTS_DIR}/Shimmer/Shimmer.framework",
 				"${BUILT_PRODUCTS_DIR}/SkyFloatingLabelTextField/SkyFloatingLabelTextField.framework",
+				"${BUILT_PRODUCTS_DIR}/SwiftMessages/SwiftMessages.framework",
 				"${BUILT_PRODUCTS_DIR}/SwiftyButton/SwiftyButton.framework",
 				"${BUILT_PRODUCTS_DIR}/pop/pop.framework",
 			);
@@ -332,20 +361,42 @@
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AlamofireObjectMapper.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Cache.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ESTabBarController_swift.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Hero.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Hue.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ImagePicker.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Imaginary.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Lightbox.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Mapbox.framework",
 				"${DWARF_DSYM_FOLDER_PATH}/Mapbox.framework.dSYM",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ObjectMapper.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Pulley.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SDWebImage.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Shimmer.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SkyFloatingLabelTextField.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftMessages.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyButton.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/pop.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Traveler/Pods-Traveler-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		B3B5DFF4CF08BCA49D2F471D /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Traveler/Pods-Traveler-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -364,20 +415,32 @@
 				59EA29581FA102D800071C54 /* AppDelegate.swift in Sources */,
 				59D3756D1FAB0697004F35E4 /* BasicContentView.swift in Sources */,
 				59814E9A1FBECE970095FE7D /* HomeViewStatsCellCollectionViewCell.swift in Sources */,
+				59814EB41FC028DF0095FE7D /* PlaceDetailViewController.swift in Sources */,
 				59814EA41FBF556D0095FE7D /* SingleImageTimelineTableViewCell.swift in Sources */,
+				59A148141FC17AD6007C7F93 /* SwitchButton.swift in Sources */,
+				59814EBA1FC0C35F0095FE7D /* PlaceTableViewCell.swift in Sources */,
+				59814EB81FC0C0270095FE7D /* DrawerContentViewController.swift in Sources */,
+				59A1481A1FC195DA007C7F93 /* PostImageCollectionViewCell.swift in Sources */,
 				59814E9E1FBEE06C0095FE7D /* Extensions.swift in Sources */,
 				59814E9C1FBED8890095FE7D /* MapView.swift in Sources */,
+				59FA650B1FC159C300F712F5 /* UserInfoTableViewCell.swift in Sources */,
 				59814E841FBE5C620095FE7D /* User.swift in Sources */,
+				59814EB61FC0C0170095FE7D /* PrimaryContentViewController.swift in Sources */,
 				59814EA21FBF52E70095FE7D /* TextViewFixed.swift in Sources */,
+				59A148181FC18E11007C7F93 /* SelectLocationTableViewCell.swift in Sources */,
 				59B045BC1FAD24E4007AFB1B /* Globals.swift in Sources */,
+				59814EB21FC014B10095FE7D /* MarkerAnnotation.swift in Sources */,
 				59EA29751FA13B8700071C54 /* TimelineViewController.swift in Sources */,
 				59814E861FBE5DD50095FE7D /* Post.swift in Sources */,
 				59EA29731FA1372300071C54 /* ExploreViewController.swift in Sources */,
 				59814E881FBE5FE70095FE7D /* Place.swift in Sources */,
+				59814EBC1FC0C3AF0095FE7D /* NoPlaceDataTableViewCell.swift in Sources */,
 				59EA298F1FA1D55F00071C54 /* AuthenticationViewController.swift in Sources */,
+				59A148161FC18939007C7F93 /* SelectLocationViewController.swift in Sources */,
 				59EA29871FA1CFAC00071C54 /* BounceContentView.swift in Sources */,
 				59EA298D1FA1D0C700071C54 /* TabBarController.swift in Sources */,
 				59814EA81FBF5F2A0095FE7D /* MultipleImageTimelineTableViewCell.swift in Sources */,
+				59814EB01FC00E2E0095FE7D /* MarkerAnnotationView.swift in Sources */,
 				59814EAA1FBF6DF00095FE7D /* PlaceholderTimelineTableViewCell.swift in Sources */,
 				59EA29711FA1370E00071C54 /* HomeViewController.swift in Sources */,
 			);
@@ -414,7 +477,9 @@
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
@@ -422,7 +487,11 @@
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
@@ -463,7 +532,9 @@
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
@@ -471,7 +542,11 @@
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
@@ -498,7 +573,7 @@
 		};
 		59EA29691FA102D800071C54 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 1DCB9AB0558F084A1DFB749C /* Pods-Traveler.debug.xcconfig */;
+			baseConfigurationReference = 6DA8B853BAEA78CB2DB8908A /* Pods-Traveler.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = 64RB4P5EF6;
@@ -507,13 +582,14 @@
 				PRODUCT_BUNDLE_IDENTIFIER = usc.jingyuny.Traveler;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "Traveler/Traveler-Bridging-Header.h";
-				SWIFT_VERSION = 3.0;
+				SWIFT_SWIFT3_OBJC_INFERENCE = On;
+				SWIFT_VERSION = 4.0;
 			};
 			name = Debug;
 		};
 		59EA296A1FA102D800071C54 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 14DAA0C330B087E7F8383660 /* Pods-Traveler.release.xcconfig */;
+			baseConfigurationReference = 99932D1E857853A700416C39 /* Pods-Traveler.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = 64RB4P5EF6;
@@ -522,7 +598,8 @@
 				PRODUCT_BUNDLE_IDENTIFIER = usc.jingyuny.Traveler;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "Traveler/Traveler-Bridging-Header.h";
-				SWIFT_VERSION = 3.0;
+				SWIFT_SWIFT3_OBJC_INFERENCE = On;
+				SWIFT_VERSION = 4.0;
 			};
 			name = Release;
 		};

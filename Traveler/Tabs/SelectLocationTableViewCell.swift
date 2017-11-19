@@ -1,22 +1,22 @@
 //
-//  MultipleImageTimelineTableViewCell.swift
+//  SelectLocationTableViewCell.swift
 //  Traveler
 //
-//  Created by Jingyun Yang on 11/17/17.
+//  Created by Jingyun Yang on 11/19/17.
 //  Copyright © 2017 Jingyun Yang. All rights reserved.
 //
 
 import UIKit
 
-class MultipleImageTimelineTableViewCell: TimelineTableViewCell {
-
-    @IBOutlet var postImageViews: [UIImageView]!
+class SelectLocationTableViewCell: UITableViewCell {
+    
+    @IBOutlet weak var avatarImageView: RoundImageView!
+    @IBOutlet weak var nameLabel: UILabel!
+    @IBOutlet weak var descriptionLabel: UILabel!
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        
-        postImageViews = self.postImageViews.sorted { (a,b) in  a.tag < b.tag }
-        
+        // Initialization code
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {

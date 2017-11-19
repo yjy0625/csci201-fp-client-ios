@@ -16,6 +16,7 @@ class TimelineViewController: UIViewController {
     @IBOutlet weak var timelineTableView: UITableView!
     
     fileprivate var posts: [ (Date, [Post]) ]!
+    fileprivate var addedConstraints = [String: NSLayoutConstraint]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -27,6 +28,10 @@ class TimelineViewController: UIViewController {
         timelineTableView.separatorStyle = .none
         
         getPosts()
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        
     }
 
     override func didReceiveMemoryWarning() {
@@ -66,17 +71,76 @@ class TimelineViewController: UIViewController {
                 }
                 
                 self.timelineTableView.reloadData()
+                self.timelineTableView.setNeedsLayout()
                 
             }
         }
     }
     
-    private func loadNewPosts() {
+    public func loadNewPosts() {
         
     }
     
-    private func loadOlderPosts() {
+    fileprivate func loadOlderPosts(by endTime: Int, startingAt indexPath: IndexPath) {
+        NSLog("load older post request url: \(Globals.restDir)/timeline/by/\(endTime)/maxLength/10")
+        Alamofire.request("\(Globals.restDir)/timeline/by/\(endTime)/maxLength/10").responseArray { (response: DataResponse<[Post]>) in
+            
+            // check if another request has already handle the current case
+            let currentLastSection = self.posts.count - 1
+            let lastGroupOfPosts = self.posts[currentLastSection].1
+            let currentLastRow = lastGroupOfPosts.count - 1
+            
+            if endTime != self.getOldestTimestamp() {
+                return
+            }
+            
+            if let statusCode = response.response?.statusCode {
+                
+                guard statusCode == 200, let newPosts = response.result.value else {
+                    NSLog("Get posts failed with status code \(statusCode)")
+                    return
+                }
+                
+                // add section if new post have different day
+                // populate posts object
+                
+                var currentDate: Int = lastGroupOfPosts[currentLastRow].timestamp
+                var section = indexPath.section
+                var row = indexPath.row
+                
+                for post in newPosts {
+                    let thisDate = Date(milliseconds: post.timestamp)
+                    
+                    let isInSameDay =
+                        Int(Double(currentDate) / Double(Date.DayInMilliseconds))
+                            != Int(Double(post.timestamp) / Double(Date.DayInMilliseconds))
+                    
+                    if currentDate == -1 || isInSameDay {
+                        self.posts.append( (thisDate, []) )
+                        currentDate = post.timestamp
+                        section += 1
+                        row = 0
+                    }
+                    else {
+                        row += 1
+                    }
+                    
+                    self.posts[self.posts.count - 1].1.append(post)
+                    self.timelineTableView.insertRows(at: [IndexPath.init(row: row, section: section)], with: .automatic)
+                }
+            }
+        }
+    }
+    
+    fileprivate func getOldestTimestamp() -> Int? {
+        if posts.count == 0 {
+            return nil
+        }
         
+        let lastIndex = posts.count - 1
+        let lastItem = posts[lastIndex].1
+        let lastSectionItemIndex = lastItem.count - 1
+        return lastItem[lastSectionItemIndex].timestamp
     }
 
     /*
@@ -142,8 +206,6 @@ extension TimelineViewController: UITableViewDataSource {
                 return UITableViewCell()
             }
             
-            NSLog("Post Id: \(postId), numImages: \(numImages)")
-            
             if numImages == 0 {
                 guard let cell = timelineTableView.dequeueReusableCell(withIdentifier: "noImageCell", for: indexPath) as? NoImageTimelineTableViewCell else {
                     return UITableViewCell()
@@ -157,20 +219,6 @@ extension TimelineViewController: UITableViewDataSource {
                 cell.placeLabel.text = post.placeName
                 cell.postContentTextView.text = postContent
                 cell.timeLabel.text = Date(milliseconds: post.timestamp).toAgoString(numericDates: true)
-                
-                let contentSize = cell.postContentTextView.sizeThatFits(cell.postContentTextView.bounds.size)
-                let contentHeight = contentSize.height
-                let heightConstraint = NSLayoutConstraint(
-                    item: cell.postContentTextView,
-                    attribute: NSLayoutAttribute.height,
-                    relatedBy: NSLayoutRelation.equal,
-                    toItem: nil,
-                    attribute: NSLayoutAttribute.notAnAttribute,
-                    multiplier: 1,
-                    constant: contentHeight
-                )
-                NSLog("Inferred text view height: \(contentHeight)")
-                view.addConstraint(heightConstraint)
                 
                 cell.tag = indexPath.hashValue
                 return cell
@@ -188,20 +236,6 @@ extension TimelineViewController: UITableViewDataSource {
                 cell.placeLabel.text = post.placeName
                 cell.postContentTextView.text = postContent
                 cell.timeLabel.text = Date(milliseconds: post.timestamp).toAgoString(numericDates: true)
-                
-                let contentSize = cell.postContentTextView.sizeThatFits(cell.postContentTextView.bounds.size)
-                let contentHeight = contentSize.height
-                let heightConstraint = NSLayoutConstraint(
-                    item: cell.postContentTextView,
-                    attribute: NSLayoutAttribute.height,
-                    relatedBy: NSLayoutRelation.equal,
-                    toItem: nil,
-                    attribute: NSLayoutAttribute.notAnAttribute,
-                    multiplier: 1,
-                    constant: contentHeight
-                )
-                NSLog("Inferred text view height: \(contentHeight)")
-                view.addConstraint(heightConstraint)
                 
                 if let imageUrl = try? "\(Globals.restDir)/file/image/download/post/\(postId)/index/1".asURL() {
                     cell.postImageView.sd_setImage(with: imageUrl, completed: nil)
@@ -223,20 +257,6 @@ extension TimelineViewController: UITableViewDataSource {
                 cell.placeLabel.text = post.placeName
                 cell.postContentTextView.text = postContent
                 cell.timeLabel.text = Date(milliseconds: post.timestamp).toAgoString(numericDates: true)
-                
-                let contentSize = cell.postContentTextView.sizeThatFits(cell.postContentTextView.bounds.size)
-                let contentHeight = contentSize.height
-                let heightConstraint = NSLayoutConstraint(
-                    item: cell.postContentTextView,
-                    attribute: NSLayoutAttribute.height,
-                    relatedBy: NSLayoutRelation.equal,
-                    toItem: nil,
-                    attribute: NSLayoutAttribute.notAnAttribute,
-                    multiplier: 1,
-                    constant: contentHeight
-                )
-                NSLog("Inferred text view height: \(contentHeight)")
-                view.addConstraint(heightConstraint)
                 
                 for index in 1 ... numImages {
                     if index >= 10 {
@@ -280,15 +300,19 @@ extension TimelineViewController: UITableViewDelegate {
                     NSLog("An error occurred when getting table view cell with no image")
                     return 0.0
                 }
-                let textViewHeight = cell.postContentTextView.frame.height
-                return textViewHeight + 58.5
+                
+                let textViewHeight = cell.postContentTextView.adjustHeight()
+                
+                return textViewHeight + 59.0
             }
             else if numImages == 1 {
                 guard let cell = timelineTableView.viewWithTag(indexPath.hashValue) as? SingleImageTimelineTableViewCell else {
                     NSLog("An error occurred when getting table view cell with 1 image")
                     return 0.0
                 }
-                let textViewHeight = cell.postContentTextView.frame.height
+                
+                let textViewHeight = cell.postContentTextView.adjustHeight()
+                
                 return textViewHeight + 223.0
             }
             else {
@@ -296,7 +320,8 @@ extension TimelineViewController: UITableViewDelegate {
                     NSLog("An error occurred when getting table view cell with \(numImages) images")
                     return 0.0
                 }
-                let textViewHeight = cell.postContentTextView.frame.height
+                
+                let textViewHeight = cell.postContentTextView.adjustHeight()
                 
                 let imageWidth = (self.timelineTableView.frame.width - 152.0) / 3
                 if numImages <= 3 {
@@ -312,4 +337,21 @@ extension TimelineViewController: UITableViewDelegate {
         }
     }
     
+}
+
+extension TimelineViewController {
+    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        let isLastPost = (indexPath.section == posts.count - 1) && (indexPath.row == posts[posts.count - 1].1.count - 1)
+        
+        if isLastPost {
+            NSLog("Last post reached at (\(indexPath.section),\(indexPath.row)) when post has \(posts.count) elements.")
+            
+            if let oldestTimeStamp = self.getOldestTimestamp() {
+                loadOlderPosts(by: oldestTimeStamp, startingAt: indexPath)
+            }
+            else {
+                NSLog("Get oldest timestamp failed.")
+            }
+        }
+    }
 }

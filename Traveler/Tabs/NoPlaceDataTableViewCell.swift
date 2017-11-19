@@ -1,22 +1,20 @@
 //
-//  MultipleImageTimelineTableViewCell.swift
+//  NoPlaceDataTableViewCell.swift
 //  Traveler
 //
-//  Created by Jingyun Yang on 11/17/17.
+//  Created by Jingyun Yang on 11/18/17.
 //  Copyright © 2017 Jingyun Yang. All rights reserved.
 //
 
 import UIKit
 
-class MultipleImageTimelineTableViewCell: TimelineTableViewCell {
+class NoPlaceDataTableViewCell: UITableViewCell {
 
-    @IBOutlet var postImageViews: [UIImageView]!
+    @IBOutlet weak var label: UILabel!
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        
-        postImageViews = self.postImageViews.sorted { (a,b) in  a.tag < b.tag }
-        
+        // Initialization code
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {

@@ -16,5 +16,9 @@ target 'Traveler' do
   pod 'Mapbox-iOS-SDK', '~> 3.6'
   pod 'SDWebImage', '~> 4.0'
   pod 'Shimmer'
+  pod 'Pulley'
+  pod 'SwiftMessages'
+  pod 'ImagePicker'
+  pod 'Lightbox'
 
 end

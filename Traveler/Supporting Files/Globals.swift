@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import CoreLocation
 
 class Globals: NSObject {
     
@@ -17,5 +18,7 @@ class Globals: NSObject {
     public static let restDir = "http://127.0.0.1:8080/csci201-fp-server/rest"
     
     public static var user: User? = nil
+    
+    public static var location: CLLocationCoordinate2D? = nil
     
 }

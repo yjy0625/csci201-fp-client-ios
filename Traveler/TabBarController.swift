@@ -65,7 +65,7 @@ class TabBarController: ESTabBarController {
             let v = tabBarViewControllers[i]
             v.navigationBar.isTranslucent = true
             v.navigationBar.barTintColor = UIColor.white
-            v.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName : UIColor.black, NSFontAttributeName: UIFont(name: "Avenir", size: 17)!]
+            v.navigationBar.titleTextAttributes = [NSAttributedStringKey.foregroundColor : UIColor.black, NSAttributedStringKey.font: UIFont(name: "Avenir", size: 17)!]
             v.navigationBar.tintColor = UIColor.white
             v.navigationBar.topItem?.title = tabNames[i]
         }
