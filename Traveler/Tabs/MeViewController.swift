@@ -17,6 +17,8 @@ class MeViewController: UIViewController {
     fileprivate var posts = [Post]()
     fileprivate var loaded = false
     
+    private weak var collectionView: UICollectionView?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -26,6 +28,7 @@ class MeViewController: UIViewController {
     }
     
     override func viewDidAppear(_ animated: Bool) {
+        getUserInfoUpdate()
         getPosts()
     }
 
@@ -34,8 +37,40 @@ class MeViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
+    private func getUserInfoUpdate() {
+        guard let userId = Globals.user?.id else {
+            NSLog("Cannot get user id.")
+            return
+        }
+        
+        let userInfoUpdateRequestUrl: String = "\(Globals.restDir)/user/id/\(userId)"
+        
+        Alamofire.request(userInfoUpdateRequestUrl).responseObject { (response: DataResponse<User>) in
+            if let statusCode = response.response?.statusCode {
+                
+                switch statusCode {
+                case 200:
+                    if let user = response.result.value {
+                        Globals.user = user
+                        self.collectionView?.reloadData()
+                    }
+                    else {
+                        NSLog("Get user info update error.")
+                    }
+                    break
+                default:
+                    NSLog("Get user info update error.")
+                    break
+                }
+            }
+            else {
+                NSLog("Get user info update error.")
+            }
+        }
+    }
+    
     private func getPosts() {
-        posts = []
+        var tempPosts = [Post]()
         
         guard let userId = Globals.user?.id else {
             NSLog("Error when getting user id from global data.")
@@ -51,11 +86,12 @@ class MeViewController: UIViewController {
                 }
                 
                 for post in newPosts {
-                    self.posts.append(post)
+                    tempPosts.append(post)
                 }
                 
                 self.loaded = true
-                self.tableView.reloadData()
+                self.posts = tempPosts
+                self.tableView.reloadSections(IndexSet.init(integer: 1), with: .automatic)
                 self.tableView.setNeedsLayout()
                 
             }
@@ -99,6 +135,7 @@ extension MeViewController: UITableViewDataSource {
         // user information cell
         if indexPath.section == 0 {
             if let cell = tableView.dequeueReusableCell(withIdentifier: "userInfoCell", for: indexPath) as? UserInfoTableViewCell {
+                collectionView = cell.statsCollectionView
                 cell.delegate = self
                 return cell
             }

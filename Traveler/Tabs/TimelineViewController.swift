@@ -126,7 +126,9 @@ class TimelineViewController: UIViewController {
                     }
                     
                     self.posts[self.posts.count - 1].1.append(post)
-                    self.timelineTableView.insertRows(at: [IndexPath.init(row: row, section: section)], with: .automatic)
+//                    self.timelineTableView.beginUpdates()
+//                    self.timelineTableView.insertRows(at: [IndexPath.init(row: row, section: section)], with: .automatic)
+//                    self.timelineTableView.endUpdates()
                 }
             }
         }

@@ -9,6 +9,9 @@
 import UIKit
 import ImagePicker
 import Lightbox
+import SwiftMessages
+import Alamofire
+import SwiftyButton
 
 class AddPostViewController: UIViewController {
 
@@ -24,12 +27,18 @@ class AddPostViewController: UIViewController {
     
     @IBOutlet weak var postImageCollectionView: UICollectionView!
     
+    @IBOutlet weak var addPostButton: FlatButton!
+    
     private static let TextViewPlaceholder = "Write about what's in your mind."
     
     var location: Place?
     fileprivate var postImages = [UIImage]()
-    fileprivate weak var imagePickerController = ImagePickerController()
+    fileprivate var imagePickerController = ImagePickerController()
     fileprivate var postIsPublic = true
+    
+    fileprivate var uploadedCount = 0
+    
+    var unwindSegueName = ""
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -49,8 +58,11 @@ class AddPostViewController: UIViewController {
         publicSwitch.selection = true
         privateSwitch.selection = false
         
-        imagePickerController?.imageLimit = 9
-        imagePickerController?.delegate = self
+        imagePickerController.imageLimit = 9
+        imagePickerController.delegate = self
+        
+        postImageCollectionView.delegate = self
+        postImageCollectionView.dataSource = self
         
         if let user = Globals.user {
             if let avatarUrl = try? "\(Globals.restDir)/file/image/download/user/\(user.id!)".asURL() {
@@ -76,9 +88,191 @@ class AddPostViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
+    @IBAction func cancelButtonClicked(_ sender: UIBarButtonItem) {
+        self.dismiss(animated: true, completion: nil)
+    }
+    
+    private func validate() -> Bool {
+        if self.postContentTextView.text == AddPostViewController.TextViewPlaceholder || self.postContentTextView.text.trimmingCharacters(in: .whitespacesAndNewlines).count == 0 {
+            return false
+        }
+        
+        return true
+    }
+    
+    @IBAction func post(_ sender: UIButton) {
+        if validate() {
+            addPostButton.titleLabel?.text = "Posting to timeline..."
+            addPostButton.isEnabled = false
+            
+            guard let userId = Globals.user?.id else {
+                NSLog("Cannot get user id.")
+                return
+            }
+            
+            guard let placeId = location?.id else {
+                NSLog("Cannot get place id.")
+                return
+            }
+            
+            guard let postContent = self.postContentTextView.text else {
+                NSLog("Cannot get post content.")
+                return
+            }
+            
+            guard let addPostRequestUrl = try? "\(Globals.restDir)/post".asURL() else {
+                NSLog("Create signup request url failed.")
+                return
+            }
+            
+            let uuid: String = UUID().uuidString
+            
+            let timestamp: [String: Any] = [
+                "$date": Date().toMillis()
+            ]
+            
+            let parameters: [String: Any] = [
+                "id": uuid,
+                "timestamp": timestamp,
+                "placeId": placeId,
+                "userId": userId,
+                "postContent": postContent,
+                "numImages": postImages.count,
+                "isPublic": postIsPublic
+            ]
+            
+            var request = URLRequest(url: addPostRequestUrl)
+            request.httpMethod = "POST"
+            request.setValue("application/json", forHTTPHeaderField: "Content-Type")
+            request.httpBody = try! JSONSerialization.data(withJSONObject: parameters)
+            
+            Alamofire.request(request).responseString { response in
+                if let statusCode = response.response?.statusCode {
+                    NSLog("Status code: \(statusCode)")
+                    switch statusCode {
+                    case 200:
+                        if self.postImages.count == 0 {
+                            self.showSuccess()
+                            break
+                        }
+                        
+                        self.uploadedCount = 0
+                        
+                        for i in 1 ... self.postImages.count {
+                            guard let imageRequestUrl = try? "\(Globals.restDir)/file/image/upload/post/\(uuid)/index/\(i)".asURL() else {
+                                NSLog("Create image upload request url failed.")
+                                return
+                            }
+                            
+                            let imageData = UIImageJPEGRepresentation(self.postImages[i-1], 0.2)!
+                            
+                            var imageRequest = URLRequest(url: imageRequestUrl)
+                            imageRequest.httpMethod = "POST"
+                            imageRequest.setValue("image/jpeg", forHTTPHeaderField: "Content-Type")
+                            imageRequest.httpBody = imageData
+                            
+                            Alamofire.request(imageRequest).responseString { response in
+                                if let statusCode = response.response?.statusCode {
+                                    NSLog("Status code: \(statusCode)")
+                                    switch statusCode {
+                                    case 200:
+                                        self.uploadedCount += 1
+                                        NSLog("Submitted image count: \(self.uploadedCount)")
+                                        if self.uploadedCount == self.postImages.count {
+                                            self.showSuccess()
+                                        }
+                                        break
+                                    default:
+                                        self.showError()
+                                        break
+                                    }
+                                }
+                                else {
+                                    self.showError()
+                                }
+                            }
+                        }
+                        
+                        break
+                    default:
+                        self.showError()
+                        break
+                    }
+                }
+                else {
+                    self.showError()
+                }
+            }
+        }
+        else {
+            let error = MessageView.viewFromNib(layout: .tabView)
+            error.configureTheme(.error)
+            error.configureContent(title: "Error", body: "Post content cannot be empty.")
+            error.button?.isHidden = true
+            
+            var config = SwiftMessages.Config()
+            config.duration = .seconds(seconds: 2)
+            
+            SwiftMessages.show(config: config, view: error)
+        }
+    }
+    
+    private func showSuccess() {
+        if let points = location?.points {
+            let successMessage = MessageView.viewFromNib(layout: .cardView)
+            successMessage.configureContent(title: "Success", body: "Your post is successfully added to your timeline! You earned \(points) points.", iconImage: UIImage.init(named: "SuccessIcon")!)
+            successMessage.backgroundView.backgroundColor = Globals.ThemeColor
+            successMessage.button?.isHidden = true
+            successMessage.iconLabel?.tintColor = UIColor.white
+            successMessage.titleLabel?.textColor = UIColor.white
+            successMessage.bodyLabel?.textColor = UIColor.white
+            
+            var config = SwiftMessages.Config()
+            config.duration = .seconds(seconds: 2)
+            
+            SwiftMessages.show(config: config, view: successMessage)
+        }
+        else {
+            NSLog("Cannot get location points. Notification cannot be shown.")
+        }
+        
+        self.addPostButton.titleLabel?.text = "Post to My Timeline"
+        self.addPostButton.isEnabled = true
+        
+        self.dismiss(animated: true, completion: nil)
+    }
+    
+    private func showError() {
+        let error = MessageView.viewFromNib(layout: .tabView)
+        error.configureTheme(.error)
+        error.configureContent(title: "Error", body: "Cannot post to timeline because an error occurred.")
+        error.button = nil
+        
+        var config = SwiftMessages.Config()
+        config.duration = .seconds(seconds: 2)
+        
+        SwiftMessages.show(config: config, view: error)
+        
+        self.addPostButton.titleLabel?.text = "Post to My Timeline"
+        self.addPostButton.isEnabled = true
+    }
+    
     // MARK: - Navigation
     
-    @IBAction func unwindToAddPostView(segue: UIStoryboardSegue) {}
+    @IBAction func unwindToAddPostView(segue: UIStoryboardSegue) {
+        
+        if segue.identifier == "unwindToAddPostView", let svc = segue.source as? SelectLocationViewController {
+            self.location = svc.selectedLocation
+            
+            if self.location == nil {
+                self.dismiss(animated: true, completion: nil)
+            }
+            else {
+                self.locationLabel.text = svc.selectedLocation?.name!
+            }
+        }
+        
+    }
 
     // MARK: - Public / Private Switch
     
@@ -144,18 +338,36 @@ extension AddPostViewController: UICollectionViewDataSource {
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return postImages.count
+        if postImages.count == 0 {
+            return 1
+        }
+        else {
+            return postImages.count
+        }
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        if let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "postImageCollectionViewCell", for: indexPath) as? PostImageCollectionViewCell {
-            
-            cell.imageView.image = postImages[indexPath.row]
-            return cell
-            
+        if postImages.count == 0 {
+            if let cell = postImageCollectionView.dequeueReusableCell(withReuseIdentifier: "postImageCollectionViewCell", for: indexPath) as? PostImageCollectionViewCell {
+                
+                cell.imageView.image = UIImage.init(named: "SquareAddIcon")
+                return cell
+                
+            }
+            else {
+                return UICollectionViewCell()
+            }
         }
         else {
-            return UICollectionViewCell()
+            if let cell = postImageCollectionView.dequeueReusableCell(withReuseIdentifier: "postImageCollectionViewCell", for: indexPath) as? PostImageCollectionViewCell {
+                
+                cell.imageView.image = postImages[indexPath.row]
+                return cell
+                
+            }
+            else {
+                return UICollectionViewCell()
+            }
         }
     }
     
@@ -164,9 +376,7 @@ extension AddPostViewController: UICollectionViewDataSource {
 extension AddPostViewController: UICollectionViewDelegate {
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        guard let imagePickerController = imagePickerController else {
-            return
-        }
+        NSLog("Item \(indexPath.row) selected.")
         self.present(imagePickerController, animated: true, completion: nil)
     }
     
@@ -192,6 +402,7 @@ extension AddPostViewController: ImagePickerDelegate {
     func doneButtonDidPress(_ imagePicker: ImagePickerController, images: [UIImage]) {
         self.postImages = images
         self.postImageCollectionView.reloadData()
+        imagePicker.dismiss(animated: true, completion: nil)
     }
     
 }

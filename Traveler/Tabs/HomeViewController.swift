@@ -48,6 +48,42 @@ class HomeViewController: UIViewController, CLLocationManagerDelegate, MGLMapVie
             locationManager.startUpdatingLocation()
         }
     }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        let visibleMapBounds = mapView.visibleCoordinateBounds
+        let centerCoordinate = CLLocationCoordinate2D.init(latitude: (visibleMapBounds.ne.latitude + visibleMapBounds.sw.latitude) / 2, longitude: (visibleMapBounds.ne.longitude + visibleMapBounds.sw.longitude) / 2)
+        updateMapAtCenter(coordinate: centerCoordinate)
+        
+        guard let userId = Globals.user?.id else {
+            NSLog("Cannot get user id.")
+            return
+        }
+        
+        let userInfoUpdateRequestUrl: String = "\(Globals.restDir)/user/id/\(userId)"
+        
+        Alamofire.request(userInfoUpdateRequestUrl).responseObject { (response: DataResponse<User>) in
+            if let statusCode = response.response?.statusCode {
+                
+                switch statusCode {
+                case 200:
+                    if let user = response.result.value {
+                        Globals.user = user
+                        self.statsCollectionView.reloadData()
+                    }
+                    else {
+                        NSLog("Get user info update error because response format cannot be recognized.")
+                    }
+                    break
+                default:
+                    NSLog("Get user info update error with status code \(statusCode).")
+                    break
+                }
+            }
+            else {
+                NSLog("Get user info update error because status code cannot be obtained.")
+            }
+        }
+    }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -71,7 +107,8 @@ class HomeViewController: UIViewController, CLLocationManagerDelegate, MGLMapVie
             }
             
             for place in places {
-                if self.annotations[place.id!] != nil {
+                if let oldPlace = self.annotations[place.id]?.data {
+                    oldPlace.setNumOfVisits(place.numVisits!)
                     continue
                 }
                 

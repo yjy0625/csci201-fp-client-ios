@@ -32,8 +32,8 @@ class Place: NSObject, Mappable {
         self.numVisits  <- map["numVisits"]
     }
     
-    public func incNumOfVisit() {
-        numVisits = numVisits + 1
+    public func setNumOfVisits(_ num: Int) {
+        numVisits = num
     }
     
     public func getLocation() -> CLLocationCoordinate2D {

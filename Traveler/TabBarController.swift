@@ -96,6 +96,14 @@ class TabBarController: ESTabBarController {
         self.performSegue(withIdentifier: "addPost", sender: self)
     }
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "addPost", let nc = segue.destination as? UINavigationController {
+            if let dvc = nc.topViewController as? AddPostViewController {
+                dvc.unwindSegueName = "unwindToMainPageFromAddPostPage"
+            }
+        }
+    }
+    
     @IBAction func unwindToMainPage(segue: UIStoryboardSegue) {
         
     }

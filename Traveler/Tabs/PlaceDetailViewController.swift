@@ -11,6 +11,8 @@ import Mapbox
 import SwiftyButton
 import CoreLocation
 import Hero
+import Alamofire
+import AlamofireObjectMapper
 
 class PlaceDetailViewController: UIViewController {
     
@@ -92,6 +94,25 @@ class PlaceDetailViewController: UIViewController {
             addPostButton.titleLabel?.text = "Approach the Site to Make Post"
         }
     }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        let placeRequestUrl = "\(Globals.restDir)/map/id/\(place.id!)"
+        Alamofire.request(placeRequestUrl).responseObject { (response: DataResponse<Place>) in
+            
+            guard let newPlace = response.result.value else {
+                NSLog("Cannot get place data")
+                return
+            }
+            
+            self.place.setNumOfVisits(newPlace.numVisits!)
+            self.visitedLabel.text = "\(self.place.numVisits!)"
+            
+        }
+    }
+    
+    override var preferredStatusBarStyle: UIStatusBarStyle {
+        return .lightContent
+    }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -103,12 +124,15 @@ class PlaceDetailViewController: UIViewController {
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "addPostFromPlaceDetailPage", let dvc = segue.destination as? AddPostViewController {
-            
-            dvc.location = place
-            
+        if segue.identifier == "addPostFromPlaceDetailPage", let nc = segue.destination as? UINavigationController {
+            if let dvc = nc.topViewController as? AddPostViewController {
+                dvc.location = place
+                dvc.unwindSegueName = "unwindToPlaceDetailPageFromAddPostPage"
+            }
         }
     }
+    
+    @IBAction func unwindToPlaceDetailView(segue: UIStoryboardSegue) {}
     
     @IBAction func dismissViewController(_ sender: UIButton) {
         var segueName = ""

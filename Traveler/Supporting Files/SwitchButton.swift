@@ -41,7 +41,8 @@ class SwitchButton: UIButton {
             targetColor = selectedColor
         }
         
-        self.titleLabel?.textColor = targetColor
+        self.setTitleColor(targetColor, for: .normal)
+        self.setTitleColor(targetColor, for: .highlighted)
         self.layer.borderWidth = 1.0
         self.layer.borderColor = targetColor?.cgColor
         self.layer.cornerRadius = self.frame.height / 2

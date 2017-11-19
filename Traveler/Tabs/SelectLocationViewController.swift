@@ -18,7 +18,8 @@ class SelectLocationViewController: UIViewController {
     
     private var locations = [Place]()
     
-    private var selectedLocation: Place?
+    public var selectedLocation: Place?
+    fileprivate var loaded = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -71,6 +72,7 @@ class SelectLocationViewController: UIViewController {
                     
                 }
                 
+                self.loaded = true
                 self.tableView.reloadData()
                 
             }
@@ -84,23 +86,6 @@ class SelectLocationViewController: UIViewController {
         
     }
     
-    // MARK - Navigation
-    
-    override func unwind(for unwindSegue: UIStoryboardSegue, towardsViewController subsequentVC: UIViewController) {
-        if unwindSegue.identifier == "unwindToAddPostView", let dvc = unwindSegue.destination as? AddPostViewController {
-            
-            dvc.location = selectedLocation
-            
-            if dvc.location == nil {
-                dvc.dismiss(animated: true, completion: nil)
-            }
-            else {
-                dvc.locationLabel.text = selectedLocation?.name!
-            }
-            
-        }
-    }
-    
 }
 
 extension SelectLocationViewController: UITableViewDataSource {
@@ -110,38 +95,62 @@ extension SelectLocationViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return locations.count
+        if locations.count == 0 {
+            return 1
+        }
+        else {
+            return locations.count
+        }
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        if let cell = tableView.dequeueReusableCell(withIdentifier: "selectLocationCell", for: indexPath) as? SelectLocationTableViewCell {
-            
-            let location = locations[indexPath.row]
-            
-            if let imageUrl = try? location.avatarUrl.asURL() {
-                cell.avatarImageView.sd_setImage(with: imageUrl, completed: nil)
+        if locations.count == 0 {
+            var cellName = "selectLocationLoadingCell"
+            if loaded {
+                cellName = "selectLocationEmptyCell"
             }
             
-            cell.nameLabel.text = location.name!
-            
-            var plural = ""
-            if location.points! > 1 {
-                plural = "s"
-            }
-            cell.descriptionLabel.text = "\(location.points!)pt\(plural) · \(location.numVisits!) visits"
-            
-            return cell
-            
+            return tableView.dequeueReusableCell(withIdentifier: cellName, for: indexPath)
         }
         else {
-            NSLog("Get cell at row \(indexPath.row) failed.")
-            return UITableViewCell()
+            if let cell = tableView.dequeueReusableCell(withIdentifier: "selectLocationCell", for: indexPath) as? SelectLocationTableViewCell {
+                
+                let location = locations[indexPath.row]
+                
+                if let imageUrl = try? location.avatarUrl.asURL() {
+                    cell.avatarImageView.sd_setImage(with: imageUrl, completed: nil)
+                }
+                
+                cell.nameLabel.text = location.name!
+                
+                var plural = ""
+                if location.points! > 1 {
+                    plural = "s"
+                }
+                cell.descriptionLabel.text = "\(location.points!)pt\(plural) · \(location.numVisits!) visits"
+                
+                return cell
+                
+            }
+            else {
+                NSLog("Get cell at row \(indexPath.row) failed.")
+                return UITableViewCell()
+            }
         }
     }
     
 }
 
 extension SelectLocationViewController: UITableViewDelegate {
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        if locations.count == 0 {
+            return self.tableView.frame.height
+        }
+        else {
+            return 60.0
+        }
+    }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         selectedLocation = locations[indexPath.row]

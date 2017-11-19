@@ -27,7 +27,9 @@ class ExploreViewController: PulleyViewController {
         
         primaryVC?.customDelegate = self
         drawerVC?.customDelegate = self
-        
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
         shouldUpdatePlaceData()
     }
 
