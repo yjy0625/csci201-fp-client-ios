@@ -28,7 +28,7 @@ class LoginViewController: AuthenticationViewController, UITextFieldDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         usernameTextField = SkyFloatingLabelTextField(frame: usernamePlaceholder.frame)
         usernameTextField.placeholder = LoginField.Username.rawValue
         usernameTextField.title = LoginField.Username.rawValue
@@ -39,8 +39,10 @@ class LoginViewController: AuthenticationViewController, UITextFieldDelegate {
         usernameTextField.tintColor = Globals.ThemeColor
         usernameTextField.selectedTitleColor = Globals.ThemeColor
         usernameTextField.selectedLineColor = Globals.ThemeColor
+        usernameTextField.returnKeyType = UIReturnKeyType.next
         
         self.view.addSubview(usernameTextField)
+        usernameTextField.delegate = self
         
         passwordTextField = SkyFloatingLabelTextField(frame: passwordPlaceholder.frame)
         passwordTextField.placeholder = LoginField.Password.rawValue
@@ -53,15 +55,17 @@ class LoginViewController: AuthenticationViewController, UITextFieldDelegate {
         passwordTextField.tintColor = Globals.ThemeColor
         passwordTextField.selectedTitleColor = Globals.ThemeColor
         passwordTextField.selectedLineColor = Globals.ThemeColor
+        passwordTextField.returnKeyType = UIReturnKeyType.done
         
         self.view.addSubview(passwordTextField)
-        
+        passwordTextField.delegate = self
         noAccountLabel.font = UIFont(name: "Avenir", size: 13.0)
     }
     
     override func viewDidAppear(_ animated: Bool) {
         usernameTextField.text = ""
         passwordTextField.text = ""
+        
     }
 
     override func didReceiveMemoryWarning() {
@@ -70,7 +74,8 @@ class LoginViewController: AuthenticationViewController, UITextFieldDelegate {
     }
     
     @IBAction func signin(_ sender: UIButton) {
-        signInButton.titleLabel?.text = "Logging in..."
+        
+        signInButton.setTitle("Logging in...", for: .normal)
         signInButton.isEnabled = false
         
         usernameTextField.errorMessage = ""
@@ -85,6 +90,7 @@ class LoginViewController: AuthenticationViewController, UITextFieldDelegate {
                     switch statusCode {
                     case 200:
                         if let user = response.result.value {
+                            Globals.guest = false
                             Globals.user = user
                             self.performSegue(withIdentifier: "enterHomepage", sender: self)
                         }
@@ -106,7 +112,7 @@ class LoginViewController: AuthenticationViewController, UITextFieldDelegate {
                     self.showError()
                 }
                 
-                self.signInButton.titleLabel?.text = "Login"
+                self.signInButton.setTitle("Log In", for: .normal)
                 self.signInButton.isEnabled = true
             }
         }
@@ -118,7 +124,7 @@ class LoginViewController: AuthenticationViewController, UITextFieldDelegate {
                 passwordTextField.errorMessage = "Password cannot be empty"
             }
             
-            self.signInButton.titleLabel?.text = "Login"
+            self.signInButton.setTitle("Login", for: .normal)
             self.signInButton.isEnabled = true
         }
     }
@@ -127,11 +133,27 @@ class LoginViewController: AuthenticationViewController, UITextFieldDelegate {
         performSegue(withIdentifier: "enterSignupPage", sender: self)
     }
     
+    @IBAction func signInAsGuest(_ sender: UIButton) {
+        Globals.guest = true
+        self.performSegue(withIdentifier: "enterHomepage", sender: self)
+        
+    }
     private func showError() {
         let alert = UIAlertController(title: "Network Error", message: "Cannot get response from server. Please try again later.", preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
         self.present(alert, animated: true, completion: nil)
     }
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        if textField == self.usernameTextField {
+            self.passwordTextField.becomeFirstResponder()
+        }
+        else if textField == self.passwordTextField {
+            self.passwordTextField.resignFirstResponder()
+        }
+        return false
+    }
+    
     
     // Mark: - UI Text Field Delegate
 //    func textField(textField: UITextField, shouldChangeCharactersInRange range: NSRange, replacementString string: String) -> Bool {

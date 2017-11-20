@@ -9,6 +9,7 @@
 import UIKit
 import ESTabBarController_swift
 import SwiftyButton
+import SwiftMessages
 
 class TabBarController: ESTabBarController {
 
@@ -39,16 +40,27 @@ class TabBarController: ESTabBarController {
         topBorder.backgroundColor = UIColor(white: 0.4, alpha: 1.0).cgColor
         self.tabBar.layer.addSublayer(topBorder)
         
+        
         let v1 = UINavigationController.init(
-                    rootViewController: self.storyboard?.instantiateViewController(withIdentifier: "HomeTab") as! HomeViewController)
-        let v2 = UINavigationController.init(
-                    rootViewController: self.storyboard?.instantiateViewController(withIdentifier: "ExploreTab") as!ExploreViewController)
-        let v3 = UINavigationController.init(
-                    rootViewController: self.storyboard?.instantiateViewController(withIdentifier: "AddPostTab") as! AddPostViewController)
+            rootViewController: self.storyboard?.instantiateViewController(withIdentifier: "HomeTab") as! HomeViewController)
+        let v2 = UINavigationController.init(rootViewController: self.storyboard?.instantiateViewController(withIdentifier: "ExploreTab") as!ExploreViewController)
+        var v3 = UINavigationController.init()
         let v4 = UINavigationController.init(
-                    rootViewController: self.storyboard?.instantiateViewController(withIdentifier: "TimelineTab") as! TimelineViewController)
-        let v5 = UINavigationController.init(
-                    rootViewController: self.storyboard?.instantiateViewController(withIdentifier: "MeTab") as! MeViewController)
+            rootViewController: self.storyboard?.instantiateViewController(withIdentifier: "TimelineTab") as! TimelineViewController)
+        var v5 = UINavigationController.init()
+            
+        if Globals.guest {
+            v5 = UINavigationController.init(
+                rootViewController: (self.storyboard?.instantiateViewController(withIdentifier: "GuestMeTab"))!)
+        }
+        else {
+    
+            v3 = UINavigationController.init(
+                rootViewController: self.storyboard?.instantiateViewController(withIdentifier: "AddPostTab") as! AddPostViewController)
+            
+            v5 = UINavigationController.init(
+                rootViewController: self.storyboard?.instantiateViewController(withIdentifier: "MeTab") as! MeViewController)
+        }
         
         setupMiddleButton()
         
@@ -93,7 +105,20 @@ class TabBarController: ESTabBarController {
     }
     
     @objc private func menuButtonAction(sender: UIButton) {
-        self.performSegue(withIdentifier: "addPost", sender: self)
+        if Globals.guest {
+            let error = MessageView.viewFromNib(layout: .tabView)
+            error.configureTheme(.error)
+            error.configureContent(title: "Cannot make new post.", body: "You are not logged in.")
+            error.button?.isHidden = true
+            
+            var config = SwiftMessages.Config()
+            config.duration = .seconds(seconds: 2)
+            
+            SwiftMessages.show(config: config, view: error)
+        }
+        else {
+            self.performSegue(withIdentifier: "addPost", sender: self)
+        }
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {

@@ -21,4 +21,6 @@ class Globals: NSObject {
     
     public static var location: CLLocationCoordinate2D? = nil
     
+    public static var guest: Bool = false
+    
 }

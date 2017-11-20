@@ -24,6 +24,7 @@ PODS:
   - SkyFloatingLabelTextField (3.3.0)
   - SwiftMessages (4.1.0)
   - SwiftyButton (0.7.0)
+  - Typist (1.1.0)
 
 DEPENDENCIES:
   - Alamofire (~> 4.5)
@@ -40,6 +41,7 @@ DEPENDENCIES:
   - SkyFloatingLabelTextField (~> 3.0)
   - SwiftMessages
   - SwiftyButton
+  - Typist
 
 SPEC CHECKSUMS:
   Alamofire: 2d95912bf4c34f164fdfc335872e8c312acaea4a
@@ -60,7 +62,8 @@ SPEC CHECKSUMS:
   SkyFloatingLabelTextField: 771be94beca6868a6cea187f70c965ebd81d2f93
   SwiftMessages: 1bacc783c8f10bdfdc57c14860cae8a1f1fa6591
   SwiftyButton: f0982849c00ef5a0ed0852202d00201af0943000
+  Typist: 31a3eb9d6b97ea28e0e247bb8b14ed23fe624170
 
-PODFILE CHECKSUM: a43e7c8c0cf433ff612801abed3351b1d9374143
+PODFILE CHECKSUM: 033d299e81f246395dceb7fd78f880c58e32d3f8
 
 COCOAPODS: 1.3.1

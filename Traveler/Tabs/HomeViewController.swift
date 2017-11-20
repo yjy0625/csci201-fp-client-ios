@@ -192,9 +192,6 @@ extension HomeViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
         let index = indexPath.row
-        if index < 0 || index > 2 {
-            return UICollectionViewCell()
-        }
         
         let identifiers = ["pointsCell", "levelCell", "rankingCell"]
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: identifiers[index], for: indexPath) as? HomeViewStatsCellCollectionViewCell else {
@@ -227,7 +224,7 @@ extension HomeViewController: UICollectionViewDataSource {
             cell.statsLabel.text = "--"
                     
             guard let user = Globals.user?.id else {
-                return UICollectionViewCell()
+                return cell
             }
             
             let rankRequestUrl: String = "\(Globals.restDir)/user/rank/id/\(user)"
