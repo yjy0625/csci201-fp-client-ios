@@ -32,6 +32,8 @@ class Globals: NSObject {
         numUnreadPosts += 1
         return numUnreadPosts
     }
+
+    public static var guest: Bool = false
     
 }
 

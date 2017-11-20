@@ -315,7 +315,9 @@ extension AddPostViewController: UITextViewDelegate {
     func textView(_ textView: UITextView, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool {
         let newText = (textView.text as NSString).replacingCharacters(in: range, with: text)
         let numberOfChars = newText.count
-        
+        if(text=="\n"){
+            textView.resignFirstResponder()
+        }
         // update character count text
         if numberOfChars <= 144 {
             let numCharsLeft = 144 - numberOfChars

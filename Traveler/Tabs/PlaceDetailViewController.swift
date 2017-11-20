@@ -85,14 +85,21 @@ class PlaceDetailViewController: UIViewController {
             distanceLabel.text = "Unknown"
         }
         
-        if canPost {
-            addPostButton.isEnabled = true
-            addPostButton.titleLabel?.text = "Add Post"
-        }
-        else {
+        if Globals.guest{
             addPostButton.isEnabled = false
-            addPostButton.titleLabel?.text = "Approach the Site to Make Post"
+            addPostButton.setTitle("You are not logged in!", for: .normal)
         }
+        else{
+            if canPost {
+                addPostButton.isEnabled = true
+                addPostButton.titleLabel?.text = "Add Post"
+            }
+            else {
+                addPostButton.isEnabled = false
+                addPostButton.titleLabel?.text = "Approach the Site to Make Post"
+            }
+        }
+        
     }
     
     override func viewDidAppear(_ animated: Bool) {
