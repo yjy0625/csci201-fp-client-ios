@@ -20,5 +20,6 @@ target 'Traveler' do
   pod 'SwiftMessages'
   pod 'ImagePicker'
   pod 'Lightbox'
+  pod 'Socket.IO-Client-Swift', '~> 13.0.0'
 
 end
