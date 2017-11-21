@@ -50,5 +50,7 @@
 	<string>Provide better recommendations of services nearby.</string>
 	<key>NSCameraUsageDescription</key>
 	<string>Get avatar image and post images.</string>
+	<key>MGLMapboxMetricsEnabledSettingShownInApp</key>
+	<true/>
 </dict>
 </plist>

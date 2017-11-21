@@ -253,7 +253,7 @@
                                     <action selector="dismissViewController:" destination="bkn-6L-1k4" eventType="touchUpInside" id="ybS-QC-4tG"/>
                                 </connections>
                             </button>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="tsV-1H-SIZ">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ImagePlaceholderIcon" translatesAutoresizingMaskIntoConstraints="NO" id="tsV-1H-SIZ">
                                 <rect key="frame" x="138" y="217" width="100" height="100"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                                 <constraints>
@@ -491,7 +491,7 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ctk-4m-e50">
                                 <rect key="frame" x="0.0" y="64" width="375" height="340"/>
                                 <subviews>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="hXo-M5-bdD" customClass="RoundImageView" customModule="Traveler" customModuleProvider="target">
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ImagePlaceholderIcon" translatesAutoresizingMaskIntoConstraints="NO" id="hXo-M5-bdD" customClass="RoundImageView" customModule="Traveler" customModuleProvider="target">
                                         <rect key="frame" x="20" y="20" width="48" height="48"/>
                                         <color key="backgroundColor" red="0.56476897000000004" green="0.56475800279999999" blue="0.56476545330000005" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                         <constraints>
@@ -743,7 +743,7 @@
                                                     <rect key="frame" x="0.0" y="0.0" width="300" height="59.5"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <subviews>
-                                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="xSb-zm-X3u" customClass="RoundImageView" customModule="Traveler" customModuleProvider="target">
+                                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ImagePlaceholderIcon" translatesAutoresizingMaskIntoConstraints="NO" id="xSb-zm-X3u" customClass="RoundImageView" customModule="Traveler" customModuleProvider="target">
                                                             <rect key="frame" x="20" y="14" width="32" height="32"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="width" constant="32" id="3eE-xc-M6z"/>
@@ -907,7 +907,7 @@
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="273.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="D2I-wT-0Dd" customClass="RoundImageView" customModule="Traveler" customModuleProvider="target">
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ImagePlaceholderIcon" translatesAutoresizingMaskIntoConstraints="NO" id="D2I-wT-0Dd" customClass="RoundImageView" customModule="Traveler" customModuleProvider="target">
                                                     <rect key="frame" x="24" y="11" width="36" height="36"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="36" id="4fi-Wc-GH9"/>
@@ -996,7 +996,7 @@
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="367.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="PTL-sk-0t5" customClass="RoundImageView" customModule="Traveler" customModuleProvider="target">
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ImagePlaceholderIcon" translatesAutoresizingMaskIntoConstraints="NO" id="PTL-sk-0t5" customClass="RoundImageView" customModule="Traveler" customModuleProvider="target">
                                                     <rect key="frame" x="24" y="11" width="36" height="36"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="36" id="D8u-WQ-nPE"/>
@@ -1173,7 +1173,7 @@
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="109.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="6iz-i7-duc" customClass="RoundImageView" customModule="Traveler" customModuleProvider="target">
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ImagePlaceholderIcon" translatesAutoresizingMaskIntoConstraints="NO" id="6iz-i7-duc" customClass="RoundImageView" customModule="Traveler" customModuleProvider="target">
                                                     <rect key="frame" x="24" y="11" width="36" height="36"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="36" id="Tfj-ui-eIj"/>
@@ -1389,7 +1389,7 @@
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="359.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="WPj-Zb-d1X" customClass="RoundImageView" customModule="Traveler" customModuleProvider="target">
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ImagePlaceholderIcon" translatesAutoresizingMaskIntoConstraints="NO" id="WPj-Zb-d1X" customClass="RoundImageView" customModule="Traveler" customModuleProvider="target">
                                                     <rect key="frame" x="139" y="44" width="96" height="96"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="96" id="gw1-oG-o8y"/>
@@ -2290,7 +2290,7 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="JVA-wk-Ywm" customClass="RoundImageView" customModule="Traveler" customModuleProvider="target">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ImagePlaceholderIcon" translatesAutoresizingMaskIntoConstraints="NO" id="JVA-wk-Ywm" customClass="RoundImageView" customModule="Traveler" customModuleProvider="target">
                                 <rect key="frame" x="139" y="80" width="96" height="96"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="96" id="N77-91-dkd"/>
@@ -2506,7 +2506,7 @@ and interact with other travellers</string>
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="99.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="2cl-iC-hf6" customClass="RoundImageView" customModule="Traveler" customModuleProvider="target">
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ImagePlaceholderIcon" translatesAutoresizingMaskIntoConstraints="NO" id="2cl-iC-hf6" customClass="RoundImageView" customModule="Traveler" customModuleProvider="target">
                                                     <rect key="frame" x="29" y="19" width="60" height="60"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="60" id="Ytc-DQ-LI8"/>
@@ -2647,6 +2647,7 @@ and interact with other travellers</string>
         <image name="ExploreTabIcon-Selected" width="23" height="23"/>
         <image name="HomeTabIcon" width="24" height="20"/>
         <image name="HomeTabIcon-Selected" width="25" height="21"/>
+        <image name="ImagePlaceholderIcon" width="180" height="180"/>
         <image name="LoginIcon" width="82" height="122"/>
         <image name="MarkIcon" width="36" height="36"/>
         <image name="MeTabIcon" width="23" height="23"/>

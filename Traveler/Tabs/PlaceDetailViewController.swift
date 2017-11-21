@@ -50,6 +50,8 @@ class PlaceDetailViewController: UIViewController {
         let location = CLLocationCoordinate2D(latitude: place.lat!, longitude: place.lon!)
         mapView.setZoomLevel(14.0, animated: false)
         mapView.setCenter(location, animated: false)
+        mapView.logoView.isHidden = true
+        mapView.attributionButton.isHidden = true
         
         let  marker = MGLPointAnnotation()
         marker.coordinate = location

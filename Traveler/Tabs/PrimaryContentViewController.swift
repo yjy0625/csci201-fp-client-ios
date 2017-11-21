@@ -32,6 +32,8 @@ class PrimaryContentViewController: UIViewController {
         super.viewDidLoad()
         
         mapView.delegate = self
+        mapView.logoView.isHidden = true
+        mapView.attributionButton.isHidden = true
         if let styleUrl = try? "mapbox://styles/pvxyie/cj8r298c7b5ra2ts1yx9i7pzz".asURL() {
             mapView.styleURL = styleUrl
         }

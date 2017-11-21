@@ -35,6 +35,8 @@ class HomeViewController: UIViewController, CLLocationManagerDelegate, MGLMapVie
         }
         mapView.setTargetCoordinate(CLLocationCoordinate2D.init(latitude: 34.0224, longitude: -118.2851), animated: false)
         mapView.setZoomLevel(13.0, animated: false)
+        mapView.logoView.isHidden = true
+        mapView.attributionButton.isHidden = true
         
         // Ask for Authorisation from the User.
         self.locationManager.requestAlwaysAuthorization()
