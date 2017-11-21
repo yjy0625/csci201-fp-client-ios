@@ -123,11 +123,15 @@ extension SelectLocationViewController: UITableViewDataSource {
                 
                 cell.nameLabel.text = location.name!
                 
-                var plural = ""
+                var ptPlural = ""
                 if location.points! > 1 {
-                    plural = "s"
+                    ptPlural = "s"
                 }
-                cell.descriptionLabel.text = "\(location.points!)pt\(plural) · \(location.numVisits!) visits"
+                var visitPlural = ""
+                if location.numVisits! > 1 {
+                    visitPlural = "s"
+                }
+                cell.descriptionLabel.text = "\(location.points!)pt\(ptPlural) · \(location.numVisits!) visit\(visitPlural)"
                 
                 return cell
                 

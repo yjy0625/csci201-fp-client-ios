@@ -27,7 +27,6 @@ PODS:
   - Starscream (3.0.2)
   - SwiftMessages (4.1.0)
   - SwiftyButton (0.7.0)
-  - Typist (1.1.0)
 
 DEPENDENCIES:
   - Alamofire (~> 4.5)
@@ -45,7 +44,6 @@ DEPENDENCIES:
   - Socket.IO-Client-Swift (~> 13.0.0)
   - SwiftMessages
   - SwiftyButton
-  - Typist
 
 SPEC CHECKSUMS:
   Alamofire: 2d95912bf4c34f164fdfc335872e8c312acaea4a
@@ -68,7 +66,6 @@ SPEC CHECKSUMS:
   Starscream: b512c62f6706421221b5ceb2ba01a9f58aca5bea
   SwiftMessages: 1bacc783c8f10bdfdc57c14860cae8a1f1fa6591
   SwiftyButton: f0982849c00ef5a0ed0852202d00201af0943000
-  Typist: 31a3eb9d6b97ea28e0e247bb8b14ed23fe624170
 
 PODFILE CHECKSUM: 03ea1784f57660f06bc71cb6e04f35f3b73f491b
 

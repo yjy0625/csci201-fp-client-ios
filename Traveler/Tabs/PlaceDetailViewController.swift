@@ -80,6 +80,9 @@ class PlaceDetailViewController: UIViewController {
             if distanceKm < 1.0 {
                 canPost = true
             }
+            if distanceKm > 100.0 {
+                distanceLabel.text = "\(Int(round(distanceKm))) KM"
+            }
         }
         else {
             distanceLabel.text = "Unknown"

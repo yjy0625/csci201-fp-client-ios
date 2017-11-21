@@ -134,9 +134,9 @@ class LoginViewController: AuthenticationViewController, UITextFieldDelegate {
     }
     
     @IBAction func signInAsGuest(_ sender: UIButton) {
+        Globals.user = nil
         Globals.guest = true
         self.performSegue(withIdentifier: "enterHomepage", sender: self)
-        
     }
     private func showError() {
         let alert = UIAlertController(title: "Network Error", message: "Cannot get response from server. Please try again later.", preferredStyle: .alert)

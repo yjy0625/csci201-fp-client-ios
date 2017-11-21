@@ -50,6 +50,8 @@ class HomeViewController: UIViewController, CLLocationManagerDelegate, MGLMapVie
     }
     
     override func viewDidAppear(_ animated: Bool) {
+        statsCollectionView.reloadData()
+        
         let visibleMapBounds = mapView.visibleCoordinateBounds
         let centerCoordinate = CLLocationCoordinate2D.init(latitude: (visibleMapBounds.ne.latitude + visibleMapBounds.sw.latitude) / 2, longitude: (visibleMapBounds.ne.longitude + visibleMapBounds.sw.longitude) / 2)
         updateMapAtCenter(coordinate: centerCoordinate)

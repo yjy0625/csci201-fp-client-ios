@@ -125,7 +125,11 @@ extension DrawerContentViewController: UITableViewDataSource {
                 }
                 cell.pointLabel.text = "\(place.points!)pt\(pointLabelPluralText)"
                 
-                cell.descriptionLabel.text = "Visited by \(place.numVisits!) users."
+                var descriptionLabelPluralText = ""
+                if place.numVisits! > 1 {
+                    descriptionLabelPluralText = "s"
+                }
+                cell.descriptionLabel.text = "Visited by \(place.numVisits!) user\(descriptionLabelPluralText)."
                 
                 cell.selectionStyle = .none
                 return cell

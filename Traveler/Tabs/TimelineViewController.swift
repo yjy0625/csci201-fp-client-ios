@@ -125,7 +125,11 @@ class TimelineViewController: UIViewController {
         self.timelineTableView.setNeedsLayout()
         
         if let rvc = UIApplication.shared.keyWindow?.rootViewController {
-            if !(rvc is TimelineViewController) {
+            if rvc is TimelineViewController {
+                Globals.resetUnreadPosts()
+                self.tabBarController?.tabBar.items?[3].badgeValue = nil
+            }
+            else {
                 self.tabBarController?.tabBar.items?[3].badgeValue = "\(Globals.incrementUnreadPosts())"
             }
         }
@@ -322,7 +326,7 @@ extension TimelineViewController: UITableViewDelegate {
                 
                 let textViewHeight = cell.postContentTextView.adjustHeight()
                 
-                let imageWidth = (self.timelineTableView.frame.width - 152.0) / 3
+                let imageWidth = cell.postImageViews[0].frame.width
                 if numImages <= 3 {
                     return imageWidth + textViewHeight + 94.0
                 }
