@@ -1,3 +1,3 @@
-# CSCI 201 Final Project iOS Client
+# Traveler (iOS Client)
 
 An iOS client for the Traveler application.
